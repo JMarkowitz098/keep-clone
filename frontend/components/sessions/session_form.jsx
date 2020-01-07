@@ -13,7 +13,7 @@ class SessionForm extends React.Component {
 
     signup() {
         return (
-            <div className="login-link">
+            <div className="link">
                 <Link to={"/login"} >Log In</Link>
             </div>
         )
@@ -21,7 +21,7 @@ class SessionForm extends React.Component {
 
     login() {
         return (
-            <div className="signup-link">
+            <div className="link">
                 <Link to={"/signup"} >Create Account</Link>
             </div>
         )
@@ -67,21 +67,32 @@ class SessionForm extends React.Component {
         return (
             <div className="container">
                 {this.googleLogo()}
-                {!signinTrue ? <h2>Create Your Google Account</h2> : <h2>Sign In</h2>}
+                {!signinTrue ? <h2 className="create" >Create Your Google Account</h2> : <h2 className="signin" >Sign In</h2>}
                 {signinTrue ? <h3 className="use-account">Use your Google Account</h3> : null}
-                <form onSubmit={this.handleSubmit}>
-                    <label>Email or phone
+                <div className="box">
+                    <form onSubmit={this.handleSubmit}>
                         <br/>
-                        <input type="text" onChange={this.handleInput('email')} />
-                    </label>
-                    <br />
-                    <label>Enter your password
-                        <br/>
-                        <input type="text" onChange={this.handleInput('password')} />
-                    </label>
-                    <br />
-                    <button type="submit">Next</button>
-                </form>
+                        <div className="email-div">
+                            <input 
+                                type="text" 
+                                onChange={this.handleInput('email')} 
+                                className="email-input" 
+                                />
+                            <label>Email</label>
+                        </div>
+                        <br />
+                        <div>
+                            <input 
+                                type="password" 
+                                onChange={this.handleInput('password')} 
+                                className="password-input" 
+                            />
+                            <label >Enter your password</label>
+                        </div>
+                        <br />
+                        <button type="submit">Next</button>
+                    </form>
+                </div>
                 <br/>
                 {this.props.formType === 'Create User' ? this.signup() : this.login()}
                 <ul>
