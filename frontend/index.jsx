@@ -5,15 +5,21 @@ import Root from "./components/root";
 import { login, logout, createUser} from './actions/session_actions'
 
 document.addEventListener("DOMContentLoaded", () => {
-    const store = configureStore();
     const root = document.getElementById("root");
 
-    // TESTING START
-    window.getState = store.getState;
-    window.dispatch = store.dispatch;
-    window.login = login
-    window.logout = logout
-    // TESTING END
+    let store;
+    if (window.currentUser) {
+        const preloadedState = {
+            entities: {
+                users: { [window.currentUser.id]: window.currentUser }
+            },
+            session: { id: window.currentUser.id }
+        };
+        store = configureStore(preloadedState);
+        delete window.currentUser;
+    } else {
+        store = configureStore();
+    }
 
     ReactDOM.render(<Root store={store} />, root);
 });
