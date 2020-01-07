@@ -8,6 +8,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util'
 const App = () => (
     <div>
         <header>
+            <link href="https://fonts.googleapis.com/css?family=Public+Sans&display=swap" rel="stylesheet"></link>
             {/* <h1>KEEP GOING BABY</h1> */}
             {/* <GreetingContainer /> */}
         </header>

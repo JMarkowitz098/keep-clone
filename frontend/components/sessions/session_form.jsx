@@ -13,8 +13,7 @@ class SessionForm extends React.Component {
 
     signup() {
         return (
-            <div>
-                <h1>Sign Up</h1>
+            <div className="login-link">
                 <Link to={"/login"} >Log In</Link>
             </div>
         )
@@ -22,10 +21,22 @@ class SessionForm extends React.Component {
 
     login() {
         return (
-            <div>
-                <h1>Log In</h1>
-                <Link to={"/signup"} >Sign up</Link>
+            <div className="signup-link">
+                <Link to={"/signup"} >Create Account</Link>
             </div>
+        )
+    }
+
+    googleLogo(){
+        return(
+            <div className = "google-logo">
+                <span className="gG" >G</span>
+                <span className="oe" >o</span>
+                <span className="o" >o</span>
+                <span className="gG" >g</span>
+                <span className="l" >l</span>
+                <span className="oe" >e</span>
+            </div> 
         )
     }
 
@@ -51,20 +62,28 @@ class SessionForm extends React.Component {
     }
 
     render() {
+        let signinTrue
+        this.props.formType === 'Log In' ? signinTrue = true : signinTrue = false
         return (
-            <div>
-                {this.props.formType === 'Create User' ? this.signup() : this.login()}
+            <div className="container">
+                {this.googleLogo()}
+                {!signinTrue ? <h2>Create Your Google Account</h2> : <h2>Sign In</h2>}
+                {signinTrue ? <h3 className="use-account">Use your Google Account</h3> : null}
                 <form onSubmit={this.handleSubmit}>
-                    <label>Username:
+                    <label>Email or phone
+                        <br/>
                         <input type="text" onChange={this.handleInput('email')} />
                     </label>
                     <br />
-                    <label>Password:
+                    <label>Enter your password
+                        <br/>
                         <input type="text" onChange={this.handleInput('password')} />
                     </label>
                     <br />
-                    <button type="submit">Submit</button>
+                    <button type="submit">Next</button>
                 </form>
+                <br/>
+                {this.props.formType === 'Create User' ? this.signup() : this.login()}
                 <ul>
                     {this.handleErrors()}
                 </ul>
