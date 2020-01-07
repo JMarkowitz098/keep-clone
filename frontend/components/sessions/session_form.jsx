@@ -15,7 +15,7 @@ class SessionForm extends React.Component {
         return (
             <div>
                 <h1>Sign Up</h1>
-                <Link to={"/login"} ></Link>
+                <Link to={"/login"} >Log In</Link>
             </div>
         )
     }
@@ -24,7 +24,7 @@ class SessionForm extends React.Component {
         return (
             <div>
                 <h1>Log In</h1>
-                <Link to={"/signup"} ></Link>
+                <Link to={"/signup"} >Sign up</Link>
             </div>
         )
     }

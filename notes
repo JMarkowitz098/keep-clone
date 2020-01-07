@@ -1,4 +1,5 @@
 1. Adding email to database drops the @gmail.com and then it lets me have multiple of the same entry -done
 2. Redo user table and add unique constraint on index -done
 3. Check on authenticity token stuff -done
-4. Is using redirect the right way to force login page?
+4. Is using redirect the right way to force login page? -done
+5. Make it so users are redirected to login page or error page if they use a broken link
