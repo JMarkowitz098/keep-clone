@@ -1,2 +1,3 @@
 1. Adding email to database drops the @gmail.com and then it lets me have multiple of the same entry -done
 2. Redo user table and add unique constraint on index -done
+3. Check on authenticity token stuff
