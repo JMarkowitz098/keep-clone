@@ -12,6 +12,10 @@ class SessionForm extends React.Component {
         this.loginGuest = this.loginGuest.bind(this)
     }
 
+    componentWillUnmount () {
+        this.props.clearErrors()
+    }
+
     signup() {
         return (
             <div className="link-div">
@@ -67,7 +71,7 @@ class SessionForm extends React.Component {
         e.preventDefault();
         const user = Object.assign({}, this.state);
         this.props.processForm(user)
-            .then(() => this.props.history.push('./'));
+            .then(() => this.props.history.push('./'))
     }
 
     render() {
@@ -98,7 +102,6 @@ class SessionForm extends React.Component {
                                 onChange={this.handleInput('password')} 
                                 className="password-input" 
                                 value={this.state.password}
-
                                 required
                                 />
                             <label >Enter your password</label>
