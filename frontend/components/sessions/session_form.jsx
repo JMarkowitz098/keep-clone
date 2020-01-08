@@ -56,9 +56,9 @@ class SessionForm extends React.Component {
     handleErrors() {
 
         if (this.props.errors.length !== 0) {
-            // debugger
+
             let inputs = Array.from(document.getElementsByClassName('inputs'));
-            let labelInputs = Array.from(document.getElementsByClassName('label-inputs'));
+            let labelInputs = Array.from(document.getElementsByClassName('label-input'));
             inputs.forEach((ele) => ele.setAttribute("id", 'has-errors'));
             labelInputs.forEach((ele) => ele.setAttribute("id", 'label-has-errors'));
         }
