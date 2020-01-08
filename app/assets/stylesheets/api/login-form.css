@@ -30,7 +30,16 @@
     pointer-events: none
 }
 
+#guest-input {
+    font-family: 'Public Sans', sans-serif;
+    color: rgb(90,146,245);
+    text-decoration: none;
+    border: none;
+}
 
+#guest-input:hover {
+    cursor: pointer;
+}
 
 .box input:focus ~label,
 .box input:valid ~label {

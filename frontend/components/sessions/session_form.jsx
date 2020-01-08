@@ -9,6 +9,7 @@ class SessionForm extends React.Component {
             password: ""
         };
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.loginGuest = this.loginGuest.bind(this)
     }
 
     signup() {
@@ -40,11 +41,12 @@ class SessionForm extends React.Component {
         )
     }
 
-    loginGuest() {
+    loginGuest(e) {
         this.setState({
-            username: "superman",
+            email: "superman",
             password: "greenrock"
         })
+        console.log(this.state)
     }
 
     handleErrors() {
@@ -84,6 +86,7 @@ class SessionForm extends React.Component {
                                 type="text" 
                                 onChange={this.handleInput('email')} 
                                 className="email-input" 
+                                value={this.state.email}
                                 required
                                 />
                             <label>Email</label>
@@ -94,6 +97,8 @@ class SessionForm extends React.Component {
                                 type="password" 
                                 onChange={this.handleInput('password')} 
                                 className="password-input" 
+                                value={this.state.password}
+
                                 required
                                 />
                             <label >Enter your password</label>
@@ -102,7 +107,12 @@ class SessionForm extends React.Component {
                     <ul className='errors'>
                         {this.handleErrors()}
                     </ul>
-                    <button onClick={this.loginGuest} >Use Guest Account</button>
+                    {signinTrue ? (<input 
+                                        type="submit" 
+                                        onClick={this.loginGuest} 
+                                        value="Use Guest Account" 
+                                        id="guest-input"
+                                    />) : null}
                     <div className="submit-link-div">
                         {!signinTrue ? this.signup() : this.login()}
                         <button type="submit" className="next-button" >Next</button>
