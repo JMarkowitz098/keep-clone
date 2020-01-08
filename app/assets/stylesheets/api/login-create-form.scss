@@ -59,6 +59,15 @@
     z-index: 0;
 }
 
+#has-errors {
+    border: 2px red solid;
+}
+
+#label-has-errors {
+    color: red
+}
+
+
 
 .errors{
     font-family: 'Public Sans', sans-serif;
@@ -78,8 +87,6 @@
     width: 366px;
     box-shadow: 0;
 }
-
-
 
 .link,
 .link:visited {

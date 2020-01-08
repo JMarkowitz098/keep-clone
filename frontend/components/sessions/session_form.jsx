@@ -54,6 +54,14 @@ class SessionForm extends React.Component {
     }
 
     handleErrors() {
+
+        if (this.props.errors.length !== 0) {
+            // debugger
+            let inputs = Array.from(document.getElementsByClassName('inputs'));
+            let labelInputs = Array.from(document.getElementsByClassName('label-inputs'));
+            inputs.forEach((ele) => ele.setAttribute("id", 'has-errors'));
+            labelInputs.forEach((ele) => ele.setAttribute("id", 'label-has-errors'));
+        }
         return (
             this.props.errors.map((error, idx) => (
                 <li key={idx}>{error}</li>
@@ -75,8 +83,8 @@ class SessionForm extends React.Component {
     }
 
     render() {
-        let signinTrue
-        this.props.formType === 'Log In' ? signinTrue = true : signinTrue = false
+        let signinTrue;
+        this.props.formType === 'Log In' ? signinTrue = true : signinTrue = false;
         return (
             <div className="container">
                 {this.googleLogo()}
@@ -89,22 +97,22 @@ class SessionForm extends React.Component {
                             <input 
                                 type="text" 
                                 onChange={this.handleInput('email')} 
-                                className="email-input" 
+                                className="inputs" 
                                 value={this.state.email}
                                 required
                                 />
-                            <label>Email</label>
+                            <label className="label-input">Email</label>
                         </div>
                         <br />
                         <div>
                             <input 
                                 type="password" 
                                 onChange={this.handleInput('password')} 
-                                className="password-input" 
+                                className="inputs" 
                                 value={this.state.password}
                                 required
                                 />
-                            <label >Enter your password</label>
+                            <label className="label-input">Enter your password</label>
                         </div>
                         <br />
                     <ul className='errors'>
