@@ -56,9 +56,22 @@ class SessionForm extends React.Component {
     handleErrors() {
 
         if (this.props.errors.length !== 0) {
-
-            let inputs = Array.from(document.getElementsByClassName('inputs'));
-            let labelInputs = Array.from(document.getElementsByClassName('label-input'));
+            let inputs = [];
+            let labelInputs = [];
+            
+            this.props.errors((error) => {
+                if (error === "Email has already been taken") {
+                    inputs.push(document.getElementById('email-input'))
+                    labelInputs.push(Array.from(document.getElementsByClassName('label-input'))[0]);
+                } elseif(error === "Password is too short (minimum is 6 characters)) {
+                    inputs.push(document.getElementById('password-input'));
+                    labelInputs.push(Array.from(document.getElementsByClassName('label-input'))[1]);
+                } else {
+                    let inputs = Array.from(document.getElementsByClassName('inputs'));
+                    let labelInputs = Array.from(document.getElementsByClassName('label-input'));
+                }
+            })
+            
             inputs.forEach((ele) => ele.setAttribute("id", 'has-errors'));
             labelInputs.forEach((ele) => ele.setAttribute("id", 'label-has-errors'));
         }
@@ -97,7 +110,8 @@ class SessionForm extends React.Component {
                             <input 
                                 type="text" 
                                 onChange={this.handleInput('email')} 
-                                className="inputs" 
+                                className="inputs"
+                                id="email-input"
                                 value={this.state.email}
                                 required
                                 />
@@ -108,7 +122,8 @@ class SessionForm extends React.Component {
                             <input 
                                 type="password" 
                                 onChange={this.handleInput('password')} 
-                                className="inputs" 
+                                className="inputs"
+                                id="password-input"
                                 value={this.state.password}
                                 required
                                 />
