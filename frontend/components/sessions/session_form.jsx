@@ -13,16 +13,16 @@ class SessionForm extends React.Component {
 
     signup() {
         return (
-            <div className="link">
-                <Link to={"/login"} >Log In</Link>
+            <div className="link-div">
+                <Link className="link" to={"/login"} >Log In</Link>
             </div>
         )
     }
 
     login() {
         return (
-            <div className="link">
-                <Link to={"/signup"} >Create Account</Link>
+            <div className="link-div">
+                <Link className="link" to={"/signup"} >Create Account</Link>
             </div>
         )
     }
@@ -67,8 +67,8 @@ class SessionForm extends React.Component {
         return (
             <div className="container">
                 {this.googleLogo()}
-                {!signinTrue ? <h2 className="create" >Create Your Google Account</h2> : <h2 className="signin" >Sign In</h2>}
-                {signinTrue ? <h3 className="use-account">Use your Google Account</h3> : null}
+                {!signinTrue ? <h2>Create Your Google Account</h2> : <h2>Sign In</h2>}
+
                 <div className="box">
                     <form onSubmit={this.handleSubmit}>
                         <br/>
@@ -77,6 +77,7 @@ class SessionForm extends React.Component {
                                 type="text" 
                                 onChange={this.handleInput('email')} 
                                 className="email-input" 
+                                required
                                 />
                             <label>Email</label>
                         </div>
@@ -86,18 +87,21 @@ class SessionForm extends React.Component {
                                 type="password" 
                                 onChange={this.handleInput('password')} 
                                 className="password-input" 
-                            />
+                                required
+                                />
                             <label >Enter your password</label>
                         </div>
                         <br />
-                        <button type="submit">Next</button>
+                    <ul className='errors'>
+                        {this.handleErrors()}
+                    </ul>
+                    <div className="submit-link-div">
+                        {!signinTrue ? this.signup() : this.login()}
+                        <button type="submit" className="next-button" >Next</button>
+                    </div>
                     </form>
                 </div>
                 <br/>
-                {this.props.formType === 'Create User' ? this.signup() : this.login()}
-                <ul>
-                    {this.handleErrors()}
-                </ul>
             </div>
         );
     }

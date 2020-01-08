@@ -3,3 +3,5 @@
 3. Check on authenticity token stuff -done
 4. Is using redirect the right way to force login page? -done
 5. Make it so users are redirected to login page or error page if they use a broken link
+6. Why did adding required fix my css problem? 
+7. Need to clear errors when switching pages

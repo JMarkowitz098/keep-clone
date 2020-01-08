@@ -14,7 +14,6 @@
     width: 448px;
     padding: 48px 40px 36px;
     font-family: 'Public Sans', sans-serif;
-
 }
 
 
@@ -33,7 +32,8 @@
 
 
 
-.box input:focus ~label {
+.box input:focus ~label,
+.box input:valid ~label {
     color: rgb(90,146,245);
     top: -7.5px;
     left: 10px;
@@ -43,22 +43,22 @@
     background-color: white;
 }
 
-.box input:focus {
-    border: 2px rgb(90,146,245) solid;
-    outline: none;
-    z-index: 0;
-}
-
+.box input:focus,
 .box input:valid {
     border: 2px rgb(90,146,245) solid;
     outline: none;
     z-index: 0;
-    color: red
+}
+
+
+.errors{
+    font-family: 'Public Sans', sans-serif;
+    color: red;
+    list-style: none;
 }
 
 .box input {
-    /* border: 1px rgb(218,220,223) solid; */
-    border-bottom: none;
+    border: 1px rgb(218,220,223) solid;
     border-radius: 4px;
     color: #202124;
     font-size: 16px;
@@ -70,30 +70,61 @@
     box-shadow: 0;
 }
 
-.signup-link {
-    color: pink
-}
 
-.google-logo {
-    font-family: 'Public Sans', sans-serif;
-    width: 75;
-    height: 24;
-    font-size: 24px;
-}
 
-.link Link:link {
+.link,
+.link:visited {
     font-family: 'Public Sans', sans-serif;
     color: rgb(90,146,245);
     text-decoration: none;
 }
 
-.link:visited {
-    color: black;
-    text-decoration: none;
+.submit-link-div {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    top: 50px;
 }
 
-.signin {
-    font-family: 'Public Sans', sans-serif;
+
+.next-button {
+    color: white;
+    background-color:  rgb(90,146,245);
+    font-size: 16px;
+    border-radius: 4px;
+    padding: 10px 25px;
+    left: 300px;
+    top: 50px;
+}
+
+.next-button:hover {
+    cursor: pointer;
+}
+
+.use-account {
+    font-family: 'Noto Sans', sans-serif;
+    
+    color: #202124;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: .1px;
+    line-height: 1.5;
+}
+
+
+.container h2 {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.3333;
+}
+
+.google-logo {
+    font-family: 'Noto Sans', sans-serif;
+    width: 75;
+    height: 24;
+    font-size: 25px;
 }
 
 .gG {
