@@ -40,6 +40,13 @@ class SessionForm extends React.Component {
         )
     }
 
+    loginGuest() {
+        this.setState({
+            username: "superman",
+            password: "greenrock"
+        })
+    }
+
     handleErrors() {
         return (
             this.props.errors.map((error, idx) => (
@@ -95,6 +102,7 @@ class SessionForm extends React.Component {
                     <ul className='errors'>
                         {this.handleErrors()}
                     </ul>
+                    <button onClick={this.loginGuest} >Use Guest Account</button>
                     <div className="submit-link-div">
                         {!signinTrue ? this.signup() : this.login()}
                         <button type="submit" className="next-button" >Next</button>
