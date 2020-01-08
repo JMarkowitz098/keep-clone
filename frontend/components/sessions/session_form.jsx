@@ -54,27 +54,8 @@ class SessionForm extends React.Component {
     }
 
     handleErrors() {
+        if (this.props.errors.length !== 0) this.changeInputColorOnError()
 
-        if (this.props.errors.length !== 0) {
-            let inputs = [];
-            let labelInputs = [];
-            
-            this.props.errors((error) => {
-                if (error === "Email has already been taken") {
-                    inputs.push(document.getElementById('email-input'))
-                    labelInputs.push(Array.from(document.getElementsByClassName('label-input'))[0]);
-                } elseif(error === "Password is too short (minimum is 6 characters)) {
-                    inputs.push(document.getElementById('password-input'));
-                    labelInputs.push(Array.from(document.getElementsByClassName('label-input'))[1]);
-                } else {
-                    let inputs = Array.from(document.getElementsByClassName('inputs'));
-                    let labelInputs = Array.from(document.getElementsByClassName('label-input'));
-                }
-            })
-            
-            inputs.forEach((ele) => ele.setAttribute("id", 'has-errors'));
-            labelInputs.forEach((ele) => ele.setAttribute("id", 'label-has-errors'));
-        }
         return (
             this.props.errors.map((error, idx) => (
                 <li key={idx}>{error}</li>
@@ -110,24 +91,22 @@ class SessionForm extends React.Component {
                             <input 
                                 type="text" 
                                 onChange={this.handleInput('email')} 
-                                className="inputs"
-                                id="email-input"
+                                className="email-input"
                                 value={this.state.email}
                                 required
                                 />
-                            <label className="label-input">Email</label>
+                            <label className="label-email-input">Email</label>
                         </div>
                         <br />
                         <div>
                             <input 
                                 type="password" 
                                 onChange={this.handleInput('password')} 
-                                className="inputs"
-                                id="password-input"
+                                className="password-input"
                                 value={this.state.password}
                                 required
                                 />
-                            <label className="label-input">Enter your password</label>
+                            <label className="label-password-input">Enter your password</label>
                         </div>
                         <br />
                     <ul className='errors'>
@@ -149,6 +128,63 @@ class SessionForm extends React.Component {
             </div>
         );
     }
+
+    //Styling for errors---------------------------
+    changeInputColorOnError() {
+        let inputsAndLabelInputs = this.resetInputsAndLabelsArrays();
+        this.fillInputsAndLabelInputs(inputsAndLabelInputs);
+        this.setInputAndLabelAttributes(inputsAndLabelInputs);
+        inputsAndLabelInputs = this.resetInputsAndLabelsArrays(inputsAndLabelInputs);
+
+        this.props.errors.forEach((error) => {
+            if (error === "Email has already been taken") {
+                this.addEmailErrorIds(inputsAndLabelInputs)
+            } else if (error === "Password is too short (minimum is 6 characters)") {
+                this.addPasswordErrorIds(inputsAndLabelInputs)
+            } else {
+                this.fillInputsAndLabelInputs(inputsAndLabelInputs);
+            }
+        })
+        this.setInputAndLabelAttributes(inputsAndLabelInputs, 'has-errors', 'label-has-errors')
+    }
+
+    resetInputsAndLabelsArrays(inputsAndLabelInputs = [], inputs = [], labelInputs = []) {
+        inputs = []; []
+        labelInputs = [];
+        inputsAndLabelInputs = [inputs, labelInputs];
+        return inputsAndLabelInputs;
+    }
+
+    addErrorIds(inputArr, className) {
+        inputArr.push(Array.from(document.getElementsByClassName(className))[0]);
+        return inputArr;
+    }
+
+    addEmailErrorIds(inputsAndLabelInputs) {
+        inputsAndLabelInputs[0] = this.addErrorIds(inputsAndLabelInputs[0], 'email-input');
+        inputsAndLabelInputs[1] = this.addErrorIds(inputsAndLabelInputs[1], 'label-email-input');
+        return inputsAndLabelInputs;
+    }
+
+    addPasswordErrorIds(inputsAndLabelInputs) {
+        inputsAndLabelInputs[0] = this.addErrorIds(inputsAndLabelInputs[0], 'password-input')
+        inputsAndLabelInputs[1] = this.addErrorIds(inputsAndLabelInputs[1], 'label-password-input')
+        return inputsAndLabelInputs;
+    }
+
+    fillInputsAndLabelInputs(inputsAndLabelInputs) {
+        this.addEmailErrorIds(inputsAndLabelInputs)
+        this.addPasswordErrorIds(inputsAndLabelInputs)
+        return inputsAndLabelInputs;
+    }
+
+    setInputAndLabelAttributes(inputsAndLabelInputs, inputAtr, labelAtr) {
+        inputsAndLabelInputs[0].forEach((ele) => ele.setAttribute("id", inputAtr));
+        inputsAndLabelInputs[1].forEach((ele) => ele.setAttribute("id", labelAtr));
+    }
+
+
+    //End styling for errors---------------------------
 }
 
 export default SessionForm;
