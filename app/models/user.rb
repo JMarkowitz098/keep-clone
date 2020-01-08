@@ -5,7 +5,9 @@ class User < ApplicationRecord
 
     attr_reader :password
     after_initialize :ensure_session_token
-    # has_many :notes
+    has_many :notes,
+        foreign_key: :author_id
+
     # has_many :tags
 
     def self.find_by_credentials(email, password)
