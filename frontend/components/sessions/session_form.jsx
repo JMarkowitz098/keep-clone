@@ -8,8 +8,9 @@ class SessionForm extends React.Component {
             email: "",
             password: ""
         };
-        this.handleSubmit = this.handleSubmit.bind(this)
-        this.loginGuest = this.loginGuest.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.loginGuest = this.loginGuest.bind(this);
+        this.bindEnter = this.bindEnter.bind(this);
     }
 
     componentWillUnmount () {
@@ -63,11 +64,9 @@ class SessionForm extends React.Component {
         )
     }
 
-    preventEnter(e) {
-        let key = e.charCode || e.keyCode || 0;
-        if (key == 13) {
-            alert("I told you not to, why did you do it?");
-            e.preventDefault();
+    bindEnter(e) {
+        if (e.which === 13) {
+                this.handleSubmit(e);
         }
     }
 
@@ -93,7 +92,7 @@ class SessionForm extends React.Component {
                 {!signinTrue ? <h2>Create Your Google Account</h2> : <h2>Sign In</h2>}
 
                 <div className="box">
-                    <form onSubmit={this.handleSubmit} >
+                    <form onSubmit={this.handleSubmit} onKeyPress={this.bindEnter} >
                         <br/>
                         <div className="email-div">
                             <input 
@@ -122,7 +121,6 @@ class SessionForm extends React.Component {
                     </ul>
                     {signinTrue ? (<input 
                                         type="submit"
-                                        onKeyPress={this.preventEnter} 
                                         onClick={this.loginGuest} 
                                         value="Use Guest Account" 
                                         id="guest-input"
