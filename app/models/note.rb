@@ -9,9 +9,6 @@ class Note < ApplicationRecord
 
     before_validation :set_position
 
-    attr_reader :position
-    attr_reader :color
-
     def set_position
         self.position ||= Note.all.length + 1
     end

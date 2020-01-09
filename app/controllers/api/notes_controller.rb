@@ -17,8 +17,7 @@ class Api::NotesController < ApplicationController
 
     def show
         @note = Note.find(params[:id])
-        # debugger
-        # render json: @note
+        render 
     end
 
     private
