@@ -9,10 +9,12 @@ const receiveNote = (note) => ({
     note
 })
 
-const receiveAllNotes = (notes) => ({
+export const receiveAllNotes = (notes) => {
+
+    return {
     type: RECEIVE_ALL_NOTES,
-    notes
-})
+    notes}
+}
 
 const deleteNotes = (noteId) => ({
     type: DELETE_NOTE,
