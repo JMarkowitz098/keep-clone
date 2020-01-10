@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_09_002532) do
+ActiveRecord::Schema.define(version: 2020_01_09_230742) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,14 +18,15 @@ ActiveRecord::Schema.define(version: 2020_01_09_002532) do
   create_table "notes", force: :cascade do |t|
     t.string "title"
     t.string "body"
-    t.integer "position", null: false
     t.string "color", default: "yellow", null: false
     t.integer "author_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "position", null: false
+    t.index ["author_id", "position"], name: "index_notes_on_author_id_and_position", unique: true
     t.index ["author_id"], name: "index_notes_on_author_id"
     t.index ["body"], name: "index_notes_on_body"
-    t.index ["position"], name: "index_notes_on_position", unique: true
+    t.index ["position"], name: "index_notes_on_position"
     t.index ["title"], name: "index_notes_on_title"
   end
 

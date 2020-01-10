@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import NotesIndex from "../notes/notes_index"
-import { fetchNotes } from "../../actions/note_actions"
+import { fetchNotes, deleteNote } from "../../actions/note_actions"
 
 const mstp = (state) => {
     return ({
@@ -9,7 +9,8 @@ const mstp = (state) => {
 }
 
 const mdtp = (dispatch) => ({
-    fetchNotes: () => dispatch(fetchNotes())
+    fetchNotes: () => dispatch(fetchNotes()),
+    deleteNote: (noteId) => dispatch(deleteNote(noteId))
 })
 
 export default connect (mstp, mdtp)(NotesIndex)

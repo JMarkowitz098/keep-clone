@@ -5,7 +5,7 @@ class Greeting extends React.Component {
     loggedIn() {
         return (
             <div>
-                <h1>Welcome {this.props.currentUser.email}</h1>
+                <h1>{this.props.currentUser.email[0]}</h1>
                 <button onClick={this.props.logout} >Log Out</button>
             </div>
         )

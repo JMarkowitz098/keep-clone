@@ -1,7 +1,3 @@
-# @notes.each do |note|
-#     json.partial! "api/notes/note", note: note
-# end
-
 #Fix syntax so object. Id as key and value as object. Look up JSON.set
 
 @notes.each do |note|

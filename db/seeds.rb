@@ -7,4 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all;
+Note.destroy_all
+
 User.create!(email: "superman",  password: "greenrock")
+# Note.create!(title: "Eat Food", body: "Very quickly", author_id: User.first.id)

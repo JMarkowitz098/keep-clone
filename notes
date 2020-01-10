@@ -10,3 +10,9 @@ Unfinished
 5. Make it so users are redirected to login page or error page if they use a broken link
 6. Why did adding 'required' fix my css problem? 
 9. Fix note position so it doesn't just match id.
+
+
+Idea: Track note position in db
+Possibly use debounce so update after dragging is done
+Or maybe use an unmount
+On mouse release changes position?

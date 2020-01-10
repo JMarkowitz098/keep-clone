@@ -18,7 +18,6 @@ class Api::NotesController < ApplicationController
 
     def show
         @note = Note.find(params[:id])
-        render :show
     end
 
     def update
@@ -33,7 +32,15 @@ class Api::NotesController < ApplicationController
     def destroy
         @note = Note.find(params[:id])
         @note.delete
-        render :index
+        changePositonsOnDelete(@note.position)
+        render :show
+    end
+
+    def changePositonsOnDelete(pos)
+        Note.all.each do |note|
+            note.position -= 1 if note.position > pos
+            note.save!
+        end
     end
 
     private
