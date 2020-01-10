@@ -28,9 +28,25 @@ class NoteForm extends React.Component {
         };
     }
 
+    handleTitleClick() {
+        return (e) => {
+            let body = document.getElementById("body-input")
+            let button = document.getElementById("close-button")
+            body.setAttribute("class", "none")
+            button.setAttribute("class", "none")
+        }
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         const note = Object.assign({}, this.state);
+
+        let body = document.getElementById("body-input")
+        let button = document.getElementById("close-button")
+        body.setAttribute("class", "hide")
+        button.setAttribute("class", "hide")
+
+
         this.props
             .action(note)
         this.setState({
@@ -42,25 +58,24 @@ class NoteForm extends React.Component {
     render() {
         const {formType} = this.props
         return(
-            <div>
+            <div id="note-form-div">
                 {formType === 'Edit Form' ? <Link to='/notes'>Back to Notes</Link> : null}
-                <br/>
-                <form onSubmit={this.handleSubmit} >
-                    <label>Title
+                <form onSubmit={this.handleSubmit} className="note-form-container">
                     <input
                         type="text"
+                        id="title-input"
                         onChange={this.handleChange('title')}
+                        onClick={this.handleTitleClick()}
                         value={this.state.title}
+                        placeholder="Take a note..."
                         />
-                    </label>
-                    <br />
-                    <label>Take a note...
                     <textarea
                         onChange={this.handleChange('body')}
                         value={this.state.body}
+                        className="hide"
+                        id="body-input"
                         />
-                    </label>
-                    <input type="submit" value="Submit"></input>
+                    <input type="submit" value="Close" className="hide" id="close-button"></input>
                 </form>
             </div>
         )

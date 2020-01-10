@@ -1,0 +1,35 @@
+#note-form-div {
+    display: flex;
+    justify-content: center;
+}
+
+.note-form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    width: 20%;
+    margin: 5px;
+    list-style: none;
+    border: 1px solid   ;
+    box-sizing: border-box; 
+    border-radius: 8px;
+}
+
+#title-input {
+    width: 100%;
+    border: none;
+    font-size: 20px;
+}
+
+#body-input {
+    width: 110px;
+    resize: none;
+    min-height: 5em;
+	max-height: 50vh;
+	width: 100%;
+}
+
+.hide {
+    display: none;
+}

@@ -2,30 +2,26 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 class Greeting extends React.Component {
+
     loggedIn() {
         return (
-            <div>
+            <header id="header" >
                 <h1>{this.props.currentUser.email[0]}</h1>
                 <button onClick={this.props.logout} >Log Out</button>
-            </div>
+            </header>
         )
 
     }
 
-    notLoggedIn() {
-        return (
-            <div>
-                <Link to="/signup" >Sign Up</Link>
-                <br/>
-                <Link to="/login" >Log In</Link>
-            </div>
-        )
-    };
-
     render() {
         return (
-            <div>
-                {this.props.currentUser ? this.loggedIn() : this.notLoggedIn()}
+            <div className="header-fixed">
+                <span>
+                    <div >M</div>
+                    <div>L</div>
+                    <h2>Keep</h2>
+                </span>
+                {this.loggedIn()}
             </div>
         )
     }

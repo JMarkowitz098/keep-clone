@@ -21,16 +21,22 @@ class NotesIndex extends React.Component {
 
     renderNotes() {
         return this.props.notes.map((note) => (
-            <NoteIndexItem key={note.id} note={note} position={note.position} deleteNote={this.parentDeleteNote}/>
+            <NoteIndexItem 
+                key={note.id} 
+                note={note} 
+                position={note.position} 
+                deleteNote={this.parentDeleteNote}
+            />
         ))
     }
 
     render() {
         return(
-        <div>
-            <h1>Notes Index</h1>
-            <ul>{this.renderNotes()}</ul>
+        <div id="note-index-form-container">
             <CreateNoteContainer />
+            <div id="list-container">
+                <ul id='notes-list'>{this.renderNotes()}</ul>
+            </div>
 
         </div>)
     }
