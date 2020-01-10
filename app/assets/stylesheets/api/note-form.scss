@@ -7,19 +7,34 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 20px;
-    width: 20%;
+    padding: 10px;
+    width: 60%;
     margin: 5px;
     list-style: none;
-    border: 1px solid   ;
     box-sizing: border-box; 
     border-radius: 8px;
+    border: 1px solid;
+    border-bottom: 2px solid;
+    border-color: rgb(193,195,196);
+    box-shadow: 0px 0px 3px 1px rgb(226,227,227);
+    background-color: rgba(255, 255, 255, 0.36);
+
 }
 
 #title-input {
     width: 100%;
     border: none;
-    font-size: 20px;
+    // font-size: 15px;
+    letter-spacing: 0.00625em;
+    font-family: "Google Sans", Roboto, Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+}
+
+#title-input:focus,
+#body-input {
+    outline: none
 }
 
 #body-input {
@@ -27,7 +42,43 @@
     resize: none;
     min-height: 5em;
 	max-height: 50vh;
-	width: 100%;
+    width: 100%;
+    border: none;
+    margin-top: 20px;
+
+    letter-spacing: .01428571em;
+    font-family: Roboto,Arial,sans-serif;
+    font-size: .875rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+
+}
+
+#close-button {
+    border: none;
+    align-self: flex-end;
+    box-sizing: border-box;
+    color: rgba(0,0,0,0.87);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    letter-spacing: .01785714em;
+    font-family: 'Google Sans',Roboto,Arial,sans-serif;
+    font-size: .875rem;
+    font-weight: 500;
+    line-height: 1.25rem;
+    height: 36px;
+    padding: 8px 24px;
+    border-radius: 4px;
+}
+
+#close-button:hover {
+    cursor: pointer;
+    background-color: rgba(95,99,104,0.039);
+}
+
+#close-button:focus {
+    outline: none
 }
 
 .hide {

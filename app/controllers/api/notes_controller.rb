@@ -8,7 +8,9 @@ class Api::NotesController < ApplicationController
 
     def create
         @note = Note.new(note_params)
-        @note.author_id = current_user.id
+        @note.author_id ||= current_user.id
+        # changePositonsOnSave()
+        # debugger
         if @note.save!
             render :show
         else
@@ -39,6 +41,13 @@ class Api::NotesController < ApplicationController
     def changePositonsOnDelete(pos)
         Note.all.each do |note|
             note.position -= 1 if note.position > pos
+            note.save!
+        end
+    end
+
+    def changePositonsOnSave
+        Note.all.to_a.each do |note|
+            note.position += 1
             note.save!
         end
     end

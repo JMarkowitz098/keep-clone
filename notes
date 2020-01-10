@@ -4,12 +4,16 @@
 4. Is using redirect the right way to force login page? -done
 7. Need to clear errors when switching pages -done
 8. Add guest login -done
+9. Fix note position so it doesn't just match id. -done
 
 
 Unfinished
 5. Make it so users are redirected to login page or error page if they use a broken link
 6. Why did adding 'required' fix my css problem? 
-9. Fix note position so it doesn't just match id.
+7. Center "Use Guest account" on login page
+8. Make note text area expand as you type more
+10. Make note you create first note
+    -can't get old notes to update position
 
 
 Idea: Track note position in db

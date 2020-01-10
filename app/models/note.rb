@@ -12,6 +12,7 @@ class Note < ApplicationRecord
 
     def set_position
         self.position ||= Note.all.length + 1
+        # self.position = 1
         
     end
 

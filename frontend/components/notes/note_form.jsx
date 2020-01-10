@@ -30,10 +30,8 @@ class NoteForm extends React.Component {
 
     handleTitleClick() {
         return (e) => {
-            let body = document.getElementById("body-input")
-            let button = document.getElementById("close-button")
-            body.setAttribute("class", "none")
-            button.setAttribute("class", "none")
+            this.setTitleAndCloseClass("body-input", "close-button", "none");
+            this.changePlaceholderValues()
         }
     }
 
@@ -41,18 +39,32 @@ class NoteForm extends React.Component {
         e.preventDefault();
         const note = Object.assign({}, this.state);
 
-        let body = document.getElementById("body-input")
-        let button = document.getElementById("close-button")
-        body.setAttribute("class", "hide")
-        button.setAttribute("class", "hide")
+        this.setTitleAndCloseClass("body-input", "close-button", "hide");
+        this.setTitlePlaceholder()
+        if (this.state.title !== "" || this.state.body !== ""){
+            this.props.action(note)
+            this.setState({title: '',body: ''})
+        }
+            
+    }
 
+    setTitleAndCloseClass (titleId, closeId, classVal) {
+        let body = document.getElementById(titleId);
+        let button = document.getElementById(closeId);
+        body.setAttribute("class", classVal);
+        button.setAttribute("class", classVal);
+    }
 
-        this.props
-            .action(note)
-        this.setState({
-            title: '',
-            body: ''
-        })
+    changePlaceholderValues() {
+        let title = document.getElementById("title-input");
+        let body = document.getElementById("body-input");
+        title.setAttribute("placeholder", "Title");
+        body.setAttribute("placeholder", "Take a note...");
+    }
+
+    setTitlePlaceholder() {
+        let title = document.getElementById("title-input");
+        title.setAttribute("placeholder", "Take a note...");
     }
 //this.props.history.push(`/notes/${note.id}`)
     render() {
@@ -68,12 +80,14 @@ class NoteForm extends React.Component {
                         onClick={this.handleTitleClick()}
                         value={this.state.title}
                         placeholder="Take a note..."
+                        autoComplete="off"
                         />
                     <textarea
                         onChange={this.handleChange('body')}
                         value={this.state.body}
                         className="hide"
                         id="body-input"
+                        autoComplete="off"
                         />
                     <input type="submit" value="Close" className="hide" id="close-button"></input>
                 </form>
