@@ -4,13 +4,101 @@
   bottom: 0;
   right: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(235,235,235,.7);
   z-index: 10;
 }
 
 .modal-child {
   position: absolute;
-  top: 50%;
+  top: 25%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+
+
+#ef-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    width: 90%;
+    margin: 5px;
+    list-style: none;
+    box-sizing: border-box; 
+    border: 1px solid   ;
+    box-sizing: border-box; 
+    border-radius: 8px;
+    box-shadow: 0px 0px 3px 1px rgb(226,227,227);
+    background-color: #fff475;
+    border-color: #fff475;
+
+}
+
+#ef-title-input {
+    width: 100%;
+    border: none;
+    // font-size: 15px;
+    letter-spacing: 0.00625em;
+    font-family: "Google Sans", Roboto, Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    background-color: #fff475;
+
+}
+
+#ef-title-input:focus,
+#ef-body-input {
+    outline: none
+}
+
+#ef-body-input {
+    width: 110px;
+    resize: none;
+    min-height: 5em;
+	  max-height: 50vh;
+    width: 100%;
+    border: none;
+    margin-top: 20px;
+    background-color: #fff475;
+
+
+    letter-spacing: .01428571em;
+    font-family: Roboto,Arial,sans-serif;
+    font-size: .875rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+
+}
+
+#ef-close-button {
+    border: none;
+    align-self: flex-end;
+    box-sizing: border-box;
+    color: rgba(0,0,0,0.87);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    letter-spacing: .01785714em;
+    font-family: 'Google Sans',Roboto,Arial,sans-serif;
+    font-size: .875rem;
+    font-weight: 500;
+    line-height: 1.25rem;
+    height: 36px;
+    padding: 8px 24px;
+    border-radius: 4px;
+}
+
+#ef-close-button:hover {
+    cursor: pointer;
+    background-color: rgba(95,99,104,0.039);
+}
+
+#ef-close-button:focus {
+    outline: none
+}
+
+.hide {
+    display: none;
 }

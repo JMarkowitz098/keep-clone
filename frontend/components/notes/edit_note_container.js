@@ -30,7 +30,8 @@ const mstp = (state, ownProps) => {
     let url = ownProps.location.pathname.split("/");
     let id = parseInt(url[url.length - 1])
     return {
-        note: state.entities.notes[id]
+        note: state.entities.notes[id],
+        formType: "Edit Form"
     }
 }
 

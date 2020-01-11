@@ -18,7 +18,7 @@ class NoteForm extends React.Component {
 
     handleTitleClick() {
         return (e) => {
-            this.setTitleAndCloseClass("body-input", "close-button", "none");
+            this.setTitleAndCloseClass("cn-body-input", "cn-close-button", "none");
             this.changePlaceholderValues()
         }
     }
@@ -27,7 +27,7 @@ class NoteForm extends React.Component {
         e.preventDefault();
         const note = Object.assign({}, this.state);
 
-        this.setTitleAndCloseClass("body-input", "close-button", "hide");
+        this.setTitleAndCloseClass("cn-body-input", "cn-close-button", "hide");
         this.setTitlePlaceholder()
         if (this.state.title !== "" || this.state.body !== ""){
             this.props.action(note)
@@ -46,26 +46,66 @@ class NoteForm extends React.Component {
     }
 
     changePlaceholderValues() {
-        let title = document.getElementById("title-input");
-        let body = document.getElementById("body-input");
+        let title = document.getElementById("cn-title-input");
+        let body = document.getElementById("cn-body-input");
         title.setAttribute("placeholder", "Title");
         body.setAttribute("placeholder", "Take a note...");
     }
 
     setTitlePlaceholder() {
-        let title = document.getElementById("title-input");
+        let title = document.getElementById("cn-title-input");
         title.setAttribute("placeholder", "Take a note...");
     }
+
+    setInitialFormAttrs(attrs) {
+        const {formType} = this.props
+
+        if (formType !== 'Edit Form') {
+            this.setCreateFormAttrs(attrs)
+        } else {
+            this.setEditFormAttrs(attrs)
+        }
+
+        return attrs;
+    }
+
+    setCreateFormAttrs(attrs) {
+        attrs['noteFormDiv'] = "cn-div";
+        attrs['formContainer'] = "cn-form-container"
+        attrs['titleInput'] = 'cn-title-input'
+        attrs['bodyInput'] = 'cn-body-input'
+        attrs['closeButton'] = 'cn-close-button'
+        attrs['textAreaClass'] = 'hide'
+        return attrs;
+    }
+
+    setEditFormAttrs(attrs) {
+        attrs['noteFormDiv'] = "ef-div";
+        attrs['formContainer'] = "ef-form-container"
+        attrs['titleInput'] = 'ef-title-input'
+        attrs['bodyInput'] = 'ef-body-input'
+        attrs['closeButton'] = 'ef-close-button'
+        attrs['textAreaClass'] = 'hide'
+        return attrs;
+    }
+
+
 //this.props.history.push(`/notes/${note.id}`)
     render() {
         const {formType} = this.props
+        let textAreaClass;
+        let formAttrs = {}
+
+        this.setInitialFormAttrs(formAttrs)
+        { formType === 'Edit Form' ? textAreaClass = "" : textAreaClass = "hide"}
+
+
         return(
-            <div id="note-form-div">
-                {formType === 'Edit Form' ? <Link to='/notes'>Back to Notes</Link> : null}
-                <form onSubmit={this.handleSubmit} className="note-form-container">
+            <div id={formAttrs.noteFormDiv}>
+                <form onSubmit={this.handleSubmit} className={formAttrs.formContainer}>
                     <input
                         type="text"
-                        id="title-input"
+                        id={formAttrs.titleInput}
                         onChange={this.handleChange('title')}
                         onClick={this.handleTitleClick()}
                         value={this.state.title}
@@ -75,11 +115,11 @@ class NoteForm extends React.Component {
                     <textarea
                         onChange={this.handleChange('body')}
                         value={this.state.body}
-                        className="hide"
-                        id="body-input"
+                        className={textAreaClass}
+                        id={formAttrs.bodyInput}
                         autoComplete="off"
                         />
-                    <input type="submit" value="Close" className="hide" id="close-button"></input>
+                    <input type="submit" value="Close" className={formAttrs.textAreaClass} id={formAttrs.closeButton}></input>
                 </form>
             </div>
         )

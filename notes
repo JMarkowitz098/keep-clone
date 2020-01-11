@@ -5,6 +5,8 @@
 7. Need to clear errors when switching pages -done
 8. Add guest login -done
 9. Fix note position so it doesn't just match id. -done
+10. Make note you create first note -done
+
 
 
 Unfinished
@@ -12,9 +14,7 @@ Unfinished
 6. Why did adding 'required' fix my css problem? 
 7. Center "Use Guest account" on login page
 8. Make note text area expand as you type more
-10. Make note you create first note
-    -can't get old notes to update position
-
+9. Get clicking outside of note form to also submit
 
 Idea: Track note position in db
 Possibly use debounce so update after dragging is done
