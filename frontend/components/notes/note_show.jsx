@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom'
 class NoteShow extends React.Component {
 
     componentDidMount() {
-        this.props.fetchNote(this.props.match.params.id)
+        // this.props.fetchNote(this.props.match.params.id)
+        this.props.fetchNote(this.props.note.id)
     }
 
 
@@ -15,7 +16,7 @@ class NoteShow extends React.Component {
             <div>
                 <h1>NOTE SHOW PAGE</h1>
                 <h2>{note.title}</h2>
-                <Link to='/notes'>Back to Notes</Link>
+                <div onClick={() => this.props.closeModal()}><Link to='/notes'>Back to Notes</Link></div>
             </div>
         )
     }

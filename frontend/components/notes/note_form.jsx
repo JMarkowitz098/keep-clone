@@ -5,22 +5,10 @@ class NoteForm extends React.Component {
     constructor(props) {
         super(props)
 
-        // this.state = {
-        //     title: '',
-        //     body: ''
-        // }
         this.state = this.props.note || {title: '', body: ''}
 
         this.handleSubmit = this.handleSubmit.bind(this)
     }
-
-    // componentDidMount() {
-    //     if (this.props.match.params.id) {
-    //         let note = this.props.fetchNote(this.props.match.params.id)
-    //         debugger
-    //         this.setState(note)
-    //     }
-    // }
 
     handleChange(type) {
         return (e) => {
@@ -43,6 +31,8 @@ class NoteForm extends React.Component {
         this.setTitlePlaceholder()
         if (this.state.title !== "" || this.state.body !== ""){
             this.props.action(note)
+            .then(() => this.props.fetchNotes())
+            // this.props.createNote(note)
             this.setState({title: '',body: ''})
         }
             

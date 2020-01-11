@@ -7,6 +7,7 @@ import SignupFormContainer from './sessions/create_user_form_container'
 import NoteShowContainer from './notes/note_show_container'
 import NoteEditContainer from './notes/edit_note_container'
 import { AuthRoute, ProtectedRoute } from '../util/route_util'
+import Modal from '../components/notes/modal'
 
 const App = () => (
     <div>
@@ -15,6 +16,7 @@ const App = () => (
             <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet"></link>
         </header>
         
+        <Modal />
         <ProtectedRoute path="/" component={GreetingContainer} />
         <ProtectedRoute path="/notes" component={NotesIndexContainer} />
         {/* <ProtectedRoute path="/notes/:id" component={NoteShowContainer} /> */}

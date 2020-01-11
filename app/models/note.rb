@@ -11,9 +11,7 @@ class Note < ApplicationRecord
     before_validation :set_position
 
     def set_position
-        self.position ||= Note.all.length + 1
-        # self.position = 1
-        
+        self.position ||= 1
     end
 
 end

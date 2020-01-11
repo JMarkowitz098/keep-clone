@@ -21,6 +21,8 @@
     font-size: 1rem;
     font-weight: 500;
     line-height: 1.5rem;
+    word-wrap: break-word;
+
 }
 
 #note-body {
@@ -31,6 +33,7 @@
     width: 100%;
     border: none;
     margin-top: 5px;
+    word-wrap: break-word;
 
     letter-spacing: .01428571em;
     font-family: Roboto,Arial,sans-serif;

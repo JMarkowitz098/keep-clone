@@ -2,15 +2,14 @@ class Api::NotesController < ApplicationController
     before_action :require_signed_in!
 
     def index
-        @notes = Note.all
+        @notes = current_user.notes.each
         render :index
     end
 
     def create
         @note = Note.new(note_params)
-        @note.author_id ||= current_user.id
-        # changePositonsOnSave()
-        # debugger
+        @note.author_id = current_user.id
+        changePositonsOnSave
         if @note.save!
             render :show
         else
@@ -39,14 +38,14 @@ class Api::NotesController < ApplicationController
     end
 
     def changePositonsOnDelete(pos)
-        Note.all.each do |note|
+        current_user.notes.each do |note|
             note.position -= 1 if note.position > pos
             note.save!
         end
     end
 
     def changePositonsOnSave
-        Note.all.to_a.each do |note|
+        current_user.notes.each do |note|
             note.position += 1
             note.save!
         end
