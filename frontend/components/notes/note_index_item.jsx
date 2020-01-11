@@ -15,13 +15,16 @@ class NoteIndexItem extends React.Component{
 
     render() {
         const { note, deleteNote} = this.props
+        let linkText = note.title || note.body;
+        let bodyClass;
+        { note.title === "" ? bodyClass = "hide" : bodyClass = "note-body"}
 
         return(
             < li id="note-container" >
                 <div onClick={() => this.handleClick(note)} id="note-title">   
-                    <Link to={`/notes/${note.id}`}>{note.title} </Link>
+                    <Link id="show-link" to={`/notes/${note.id}`}>{linkText}</Link>
                 </div>
-                <p id="note-body" >{note.body}</p>
+                <p id={'note-body'} className={bodyClass}>{note.body}</p>
                 <button
                     onClick={() => deleteNote(note.id)}
                     id="delete-button"

@@ -8,10 +8,15 @@
 #note-index-form-container {
     display: flex;
     flex-direction: column;
-    // align-items: center;
+    align-items: center;
     justify-content: center;
 
-    margin: 10% 10%;
+    margin: 5% 10%;
+}
+
+#create-note-form {
+    // align-self: center;
+    color: red;
 }
 
 #list-container {

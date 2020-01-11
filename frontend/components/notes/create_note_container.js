@@ -8,7 +8,7 @@ const mstp = (state) => ({
 
 const mdtp = (dispatch) => ({
     action: note => dispatch(createNote(note)),
-    fetchNotes: notes => dispatch(fetchNotes(notes))
+    fetchNotes: () => dispatch(fetchNotes())
 })
 
 export default connect(mstp, mdtp)(NoteForm)

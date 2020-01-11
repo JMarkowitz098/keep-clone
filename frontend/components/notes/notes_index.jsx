@@ -46,7 +46,7 @@ class NotesIndex extends React.Component {
     render() {
         return(
         <div id="note-index-form-container">
-            <CreateNoteContainer />
+            <CreateNoteContainer id="create-note-form" />
             <div id="list-container">
                 <ul id='notes-list'>{this.renderNotes()}</ul>
             </div>

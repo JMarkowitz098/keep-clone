@@ -1,13 +1,14 @@
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom';
 
+
 class NoteForm extends React.Component {
     constructor(props) {
         super(props)
 
         this.state = this.props.note || {title: '', body: ''}
-
-        this.handleSubmit = this.handleSubmit.bind(this)
+        this.formAttrs = {};
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange(type) {
@@ -29,10 +30,10 @@ class NoteForm extends React.Component {
 
         this.setTitleAndCloseClass("cn-body-input", "cn-close-button", "hide");
         this.setTitlePlaceholder()
+        {this.props.formType === "Edit Form" ? this.props.closeModal() : null}
         if (this.state.title !== "" || this.state.body !== ""){
             this.props.action(note)
             .then(() => this.props.fetchNotes())
-            // this.props.createNote(note)
             this.setState({title: '',body: ''})
         }
             
@@ -57,55 +58,46 @@ class NoteForm extends React.Component {
         title.setAttribute("placeholder", "Take a note...");
     }
 
-    setInitialFormAttrs(attrs) {
+    setInitialFormAttrs() {
         const {formType} = this.props
 
         if (formType !== 'Edit Form') {
-            this.setCreateFormAttrs(attrs)
+            this.setCreateFormAttrs()
         } else {
-            this.setEditFormAttrs(attrs)
+            this.setEditFormAttrs()
         }
-
-        return attrs;
     }
 
-    setCreateFormAttrs(attrs) {
-        attrs['noteFormDiv'] = "cn-div";
-        attrs['formContainer'] = "cn-form-container"
-        attrs['titleInput'] = 'cn-title-input'
-        attrs['bodyInput'] = 'cn-body-input'
-        attrs['closeButton'] = 'cn-close-button'
-        attrs['textAreaClass'] = 'hide'
-        return attrs;
+    setCreateFormAttrs() {
+        this.formAttrs['noteFormDiv'] = "cn-div";
+        this.formAttrs['formContainer'] = "cn-form-container"
+        this.formAttrs['titleInput'] = 'cn-title-input'
+        this.formAttrs['bodyInput'] = 'cn-body-input'
+        this.formAttrs['closeButton'] = 'cn-close-button'
+        this.formAttrs['textAreaClass'] = 'hide'
     }
 
-    setEditFormAttrs(attrs) {
-        attrs['noteFormDiv'] = "ef-div";
-        attrs['formContainer'] = "ef-form-container"
-        attrs['titleInput'] = 'ef-title-input'
-        attrs['bodyInput'] = 'ef-body-input'
-        attrs['closeButton'] = 'ef-close-button'
-        attrs['textAreaClass'] = 'hide'
-        return attrs;
+    setEditFormAttrs() {
+        this.formAttrs['noteFormDiv'] = "ef-div";
+        this.formAttrs['formContainer'] = "ef-form-container"
+        this.formAttrs['titleInput'] = 'ef-title-input'
+        this.formAttrs['bodyInput'] = 'ef-body-input'
+        this.formAttrs['closeButton'] = 'ef-close-button'
+        this.formAttrs['textAreaClass'] = ''
     }
 
 
 //this.props.history.push(`/notes/${note.id}`)
     render() {
-        const {formType} = this.props
-        let textAreaClass;
-        let formAttrs = {}
 
-        this.setInitialFormAttrs(formAttrs)
-        { formType === 'Edit Form' ? textAreaClass = "" : textAreaClass = "hide"}
-
+        this.setInitialFormAttrs()
 
         return(
-            <div id={formAttrs.noteFormDiv}>
-                <form onSubmit={this.handleSubmit} className={formAttrs.formContainer}>
+            <div id={this.formAttrs.noteFormDiv}>
+                <form onSubmit={this.handleSubmit} className={this.formAttrs.formContainer}>
                     <input
                         type="text"
-                        id={formAttrs.titleInput}
+                        id={this.formAttrs.titleInput}
                         onChange={this.handleChange('title')}
                         onClick={this.handleTitleClick()}
                         value={this.state.title}
@@ -115,11 +107,11 @@ class NoteForm extends React.Component {
                     <textarea
                         onChange={this.handleChange('body')}
                         value={this.state.body}
-                        className={textAreaClass}
-                        id={formAttrs.bodyInput}
+                        className={this.formAttrs.textAreaClass}
+                        id={this.formAttrs.bodyInput}
                         autoComplete="off"
                         />
-                    <input type="submit" value="Close" className={formAttrs.textAreaClass} id={formAttrs.closeButton}></input>
+                    <input type="submit" value="Close" className={this.formAttrs.textAreaClass} id={this.formAttrs.closeButton}></input>
                 </form>
             </div>
         )

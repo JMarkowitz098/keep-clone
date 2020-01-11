@@ -1,7 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
-import { fetchNote, updateNote } from '../../actions/note_actions';
+import { fetchNote, fetchNotes, updateNote } from '../../actions/note_actions';
+import { closeModal } from "../../actions/modal_actions"
 import NoteForm from './note_form';
 
 class EditNoteForm extends React.Component {
@@ -11,8 +12,7 @@ class EditNoteForm extends React.Component {
     }
 
     render() {
-        // DO NOT MODIFY THIS FUNCTION
-        const { action, note, formType } = this.props;
+        const { action, note, formType, fetchNotes, closeModal } = this.props;
 
         // Hint: The report will not exist on the first render - what do we need to 
         // do to get it?
@@ -21,7 +21,10 @@ class EditNoteForm extends React.Component {
             <NoteForm
                 action={action}
                 formType={formType}
-                note={note} />
+                note={note} 
+                fetchNotes={fetchNotes}
+                closeModal={closeModal}
+            />
         );
     }
 }
@@ -35,9 +38,14 @@ const mstp = (state, ownProps) => {
     }
 }
 
-const mdtp = (dispatch) => ({
-    action: report => dispatch(updateNote(report))
-})
+const mdtp = (dispatch) => {
+
+    return {
+        action: report => dispatch(updateNote(report)),
+        fetchNotes: () => dispatch(fetchNotes()),
+        closeModal: () => dispatch(closeModal())
+    }
+}
 
 
 export default withRouter(connect(mstp, mdtp)(EditNoteForm))
