@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { fetchNote, updateNote } from '../../actions/note_actions';
 import NoteForm from './note_form';
@@ -26,9 +27,10 @@ class EditNoteForm extends React.Component {
 }
 
 const mstp = (state, ownProps) => {
+    let url = ownProps.location.pathname.split("/");
+    let id = parseInt(url[url.length - 1])
     return {
-        note: state.entities.notes[ownProps.match.params.id],
-        formType: 'Edit Form'
+        note: state.entities.notes[id]
     }
 }
 
@@ -36,4 +38,5 @@ const mdtp = (dispatch) => ({
     action: report => dispatch(updateNote(report))
 })
 
-export default connect(mstp, mdtp)(EditNoteForm)
+
+export default withRouter(connect(mstp, mdtp)(EditNoteForm))

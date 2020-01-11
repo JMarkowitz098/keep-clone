@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import EditNoteContainer from './edit_note_container'
 
 class NoteShow extends React.Component {
 
@@ -15,7 +16,9 @@ class NoteShow extends React.Component {
         return(
             <div>
                 <h1>NOTE SHOW PAGE</h1>
-                <h2>{note.title}</h2>
+                {/* <h2>{note.title}</h2>
+                <p></p> */}
+                <EditNoteContainer />
                 <div onClick={() => this.props.closeModal()}><Link to='/notes'>Back to Notes</Link></div>
             </div>
         )

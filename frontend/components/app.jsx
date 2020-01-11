@@ -20,7 +20,7 @@ const App = () => (
         <ProtectedRoute path="/" component={GreetingContainer} />
         <ProtectedRoute path="/notes" component={NotesIndexContainer} />
         {/* <ProtectedRoute path="/notes/:id" component={NoteShowContainer} /> */}
-        <ProtectedRoute path="/notes/:id" component={NoteEditContainer} />
+        {/* <ProtectedRoute path="/notes/:id" component={NoteEditContainer} /> */}
         
         <Switch>
             <AuthRoute path="/login" component={LoginFormContainer} />

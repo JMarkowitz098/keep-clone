@@ -38,16 +38,22 @@ class Api::NotesController < ApplicationController
     end
 
     def changePositonsOnDelete(pos)
-        current_user.notes.each do |note|
+
+        sorted_notes = current_user.notes.sort_by {|note| note.position}
+        sorted_notes.each do |note|
             note.position -= 1 if note.position > pos
             note.save!
+            # note.update_attribute("position", note.position -= 1) 
         end
     end
 
     def changePositonsOnSave
-        current_user.notes.each do |note|
+        sorted_notes = current_user.notes.sort_by {|note| note.position}
+
+        sorted_notes.reverse.each do |note|
             note.position += 1
             note.save!
+            # note.update_attribute("position", note.position += 1)
         end
     end
 
