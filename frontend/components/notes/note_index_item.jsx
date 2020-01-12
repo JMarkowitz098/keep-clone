@@ -28,7 +28,8 @@ class NoteIndexItem extends React.Component{
                 <button
                     onClick={() => deleteNote(note.id)}
                     id="delete-button"
-                >DN</button>
+                ><i className="far fa-trash-alt"></i></button>
+                
             </li >
         )
             

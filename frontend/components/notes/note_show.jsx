@@ -18,10 +18,19 @@ class NoteShow extends React.Component {
 
 
     render() {
+        const {note, deleteNote} = this.props
         return(
             <div>
                 <EditNoteContainer />
-                <div onClick={this.handleClick}></div>
+                <div id="show-buttons" ></div>
+                    <div onClick={this.handleClick}>
+                    <button
+                        onClick={() => deleteNote(note.id)}
+                        id="show-delete-button"
+                        ><i className="far fa-trash-alt"></i>
+                    </button>
+
+                </div>
             </div>
         )
     }

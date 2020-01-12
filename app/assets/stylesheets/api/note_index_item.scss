@@ -53,9 +53,12 @@
 }
 
 #delete-button {
-    align-self: flex-end;
+    align-self: flex-start;
+    font-size: 1.2em;
+
 }
 
-// #hide {
-//     display: none;
-// }
+.far fa-trash-alt{
+    font-size: 40px;
+}
+

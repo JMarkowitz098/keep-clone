@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import NoteShow from './note_show'
-import { fetchNote } from '../../actions/note_actions'
+import { fetchNote, deleteNote } from '../../actions/note_actions'
 import { closeModal } from '../../actions/modal_actions'
 
 const mstp = (state, ownProps) => {
@@ -17,7 +17,8 @@ const mdtp = (dispatch) => ({
             Signup
       </button>
     ),
-    closeModal: () => dispatch(closeModal())
+    closeModal: () => dispatch(closeModal()),
+    deleteNote: (noteId) => dispatch(deleteNote(noteId))
 })
  
 export default connect(mstp, mdtp)(NoteShow)

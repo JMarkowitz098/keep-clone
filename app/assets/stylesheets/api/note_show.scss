@@ -110,3 +110,16 @@
 .hide {
     display: none;
 }
+
+#show-buttons {
+    display: flex;
+    // flex-direction: column;
+    justify-content: center;
+
+}
+
+#show-delete-button {
+    font-size: 1.4em;
+    cursor: pointer;
+    // align-self: flex-start;
+}
