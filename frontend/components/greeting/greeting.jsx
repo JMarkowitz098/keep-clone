@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 class Greeting extends React.Component {
 
@@ -16,9 +15,9 @@ class Greeting extends React.Component {
     render() {
         return (
             <div className="header-fixed">
-                <span>
-                    <div >M</div>
-                    <div>L</div>
+                <span >
+                    <div id="header-menu-icon"><i className="fas fa-bars"></i></div>
+                    <img src={window.lburl} alt="lightbulb logo"/>
                     <h2>Keep</h2>
                 </span>
                 {this.loggedIn()}

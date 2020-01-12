@@ -7,14 +7,14 @@
 9. Fix note position so it doesn't just match id. -done
 10. Make note you create first note -done
 
-
-
 Unfinished
 5. Make it so users are redirected to login page or error page if they use a broken link
 6. Why did adding 'required' fix my css problem? 
 7. Center "Use Guest account" on login page
 8. Make note text area expand as you type more
 9. Get clicking outside of note form to also submit
+11. Make it so editing title on show page does not expand create note form
+12. Make it so clicking anywhere on the note opens the show note form
 
 Idea: Track note position in db
 Possibly use debounce so update after dragging is done

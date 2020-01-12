@@ -20,8 +20,10 @@ class NoteForm extends React.Component {
 
     handleTitleClick() {
         return (e) => {
-            this.setTitleAndCloseClass("cn-body-input", "cn-close-button", "none");
-            this.changePlaceholderValues()
+            if (this.props.formName !== "Edit Note"){
+                this.setTitleAndCloseClass("cn-body-input", "cn-close-button", "none");
+                this.changePlaceholderValues()
+            }
         }
     }
 
