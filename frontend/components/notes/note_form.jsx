@@ -14,6 +14,7 @@ class NoteForm extends React.Component {
     handleChange(type) {
         return (e) => {
             this.setState({ [type]: e.target.value });
+            // this.setState({ [type]: e.target.value || e.target.innerText });
         };
     }
 
@@ -30,11 +31,12 @@ class NoteForm extends React.Component {
 
         this.setTitleAndCloseClass("cn-body-input", "cn-close-button", "hide");
         this.setTitlePlaceholder()
+        // this.setBodyInnerText()
         {this.props.formType === "Edit Form" ? this.props.closeModal() : null}
         if (this.state.title !== "" || this.state.body !== ""){
             this.props.action(note)
+            .then(() => this.setState({title: '',body: ''}))
             .then(() => this.props.fetchNotes())
-            this.setState({title: '',body: ''})
         }
             
     }
@@ -51,12 +53,20 @@ class NoteForm extends React.Component {
         let body = document.getElementById("cn-body-input");
         title.setAttribute("placeholder", "Title");
         body.setAttribute("placeholder", "Take a note...");
+        // body.setAttribute("data-text", "Take a note...");
     }
 
     setTitlePlaceholder() {
         let title = document.getElementById("cn-title-input");
         title.setAttribute("placeholder", "Take a note...");
     }
+
+    // setBodyInnerText() {
+    //     let body = document.getElementById("cn-body-input");
+
+    //     body.setAttribute("data-text", "Take a note...");
+    //     body.setAttribute("textcontent", "Take a note...");
+    // }
 
     setInitialFormAttrs() {
         const {formType} = this.props
@@ -89,8 +99,8 @@ class NoteForm extends React.Component {
 
 //this.props.history.push(`/notes/${note.id}`)
     render() {
-
         this.setInitialFormAttrs()
+        
 
         return(
             <div id={this.formAttrs.noteFormDiv}>
@@ -104,13 +114,22 @@ class NoteForm extends React.Component {
                         placeholder="Take a note..."
                         autoComplete="off"
                         />
-                    <textarea
+                    <textarea  
+                        // contentEditable
                         onChange={this.handleChange('body')}
                         value={this.state.body}
                         className={this.formAttrs.textAreaClass}
                         id={this.formAttrs.bodyInput}
                         autoComplete="off"
                         />
+                    {/* <div  
+                        contentEditable
+                        onInput={this.handleChange('body')}
+                        innertext={this.state.body}
+                        className={this.formAttrs.textAreaClass}
+                        id={this.formAttrs.bodyInput}
+                        autoComplete="off"
+                        /> */}
                     <input type="submit" value="Close" className={this.formAttrs.textAreaClass} id={this.formAttrs.closeButton}></input>
                 </form>
             </div>

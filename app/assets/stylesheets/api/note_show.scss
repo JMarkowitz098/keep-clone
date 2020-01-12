@@ -6,6 +6,7 @@
   left: 0;
   background: rgba(235,235,235,.7);
   z-index: 10;
+  transition: 5s;
 }
 
 .modal-child {
@@ -22,7 +23,7 @@
     flex-direction: column;
     justify-content: center;
     padding: 10px;
-    width: 90%;
+    width: 600px;
     margin: 5px;
     list-style: none;
     box-sizing: border-box; 
@@ -33,6 +34,11 @@
     background-color: #fff475;
     border-color: #fff475;
 
+}
+
+.ef-form-container{
+    display: flex;
+    flex-direction: column;
 }
 
 #ef-title-input {
@@ -88,6 +94,8 @@
     height: 36px;
     padding: 8px 24px;
     border-radius: 4px;
+    background-color: #fff475;
+
 }
 
 #ef-close-button:hover {

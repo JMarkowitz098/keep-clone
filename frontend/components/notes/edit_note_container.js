@@ -14,8 +14,6 @@ class EditNoteForm extends React.Component {
     render() {
         const { action, note, formType, fetchNotes, closeModal } = this.props;
 
-        // Hint: The report will not exist on the first render - what do we need to 
-        // do to get it?
         if (!note) return null;
         return (
             <NoteForm

@@ -49,6 +49,14 @@
     line-height: 1.25rem;
 
 }
+.cn-form-container{
+    display: flex;
+    flex-direction: column;
+}
+
+[contentEditable=true]:empty:not(:focus):before{
+    content:attr(data-text)
+}
 
 #cn-close-button {
     border: none;
