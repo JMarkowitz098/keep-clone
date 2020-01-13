@@ -31,16 +31,14 @@ class NoteShow extends React.Component {
     render() {
         const {note, deleteNote} = this.props
         return(
-            <div>
+            <div id="edit-note-and-delete-container">
                 <EditNoteContainer updateModalState={this.props.updateModalState} />
-                <div id="show-buttons" ></div>
-                    <div onClick={this.handleClick}>
+                <div onClick={this.handleClick} id="delete-button-container">
                     <button
                         onClick={() => this.handleDeleteClick(note.id)}
                         id="show-delete-button"
                         ><i className="far fa-trash-alt"></i>
                     </button>
-
                 </div>
             </div>
         )
