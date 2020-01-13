@@ -1,8 +1,8 @@
 import React from 'react'
-import * as CreateNoteUtil from '../../util/create_note_form_util'
 import { Link, withRouter } from 'react-router-dom';
 
-class CreateNoteForm extends React.Component {
+
+class EditNoteForm extends React.Component {
     constructor(props) {
         super(props)
 
@@ -13,32 +13,35 @@ class CreateNoteForm extends React.Component {
     handleChange(type) {
         return (e) => {
             this.setState({ [type]: e.target.value });
-        };
+            this.props.updateModalState(type, e.target.value)
+        }
     }
 
     handleSubmit(e) {
         e.preventDefault();
         const note = Object.assign({}, this.state);
-        CreateNoteUtil.shrinkNoteForm()
-        
+        this.closeModalAndPushToIndex()
         if (this.state.title !== "" || this.state.body !== "") {
             this.props.action(note)
                 .then(() => this.setState({ title: '', body: '' }))
                 .then(() => this.props.fetchNotes())
         }
+    }
 
+    closeModalAndPushToIndex() {
+        this.props.closeModal()
+        this.props.history.push("/notes/")
     }
 
     render() {
 
         return (
-            <div id={'cn-div'}>
-                <form onSubmit={this.handleSubmit} className={'cn-form-container'}>
+            <div id={'ef-div'}>
+                <form onSubmit={this.handleSubmit} className={'ef-form-container'}>
                     <input
                         type="text"
-                        id={'cn-title-input'}
+                        id={'ef-title-input'}
                         onChange={this.handleChange('title')}
-                        onClick={CreateNoteUtil.handleTitleClick}
                         value={this.state.title}
                         placeholder="Take a note..."
                         autoComplete="off"
@@ -46,15 +49,15 @@ class CreateNoteForm extends React.Component {
                     <textarea
                         onChange={this.handleChange('body')}
                         value={this.state.body}
-                        className={'hide'}
-                        id={'cn-body-input'}
+                        id={'ef-body-input'}
                         autoComplete="off"
                     />
-                    <input type="submit" value="Close" className={'hide'} id={'cn-close-button'}></input>
+                
+                    <input type="submit" value="Close" id={'ef-close-button'}></input>
                 </form>
             </div>
         )
     }
 }
 
-export default CreateNoteForm
+export default EditNoteForm
