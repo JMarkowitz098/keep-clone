@@ -12,6 +12,14 @@
     border-color: #fff475;
 }
 
+#note-container:hover {
+    border-radius: 8px;
+    border: 1px solid;
+    border-bottom: 2px solid;
+    border-color: rgb(193,195,196);
+    box-shadow: 0px 0px 3px 1px rgb(226,227,227);
+}
+
 #note-title {
     width: 100%;
     border: none;
@@ -52,13 +60,14 @@
     line-height: 1.25rem;
 }
 
-#delete-button {
+.delete-button {
     align-self: flex-start;
     font-size: 1.2em;
-
+    z-index: 10;
 }
 
-.far fa-trash-alt{
-    font-size: 40px;
+.delete-button-hide {
+    visibility: hidden;
 }
+
 

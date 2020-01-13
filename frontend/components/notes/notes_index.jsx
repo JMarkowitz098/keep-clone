@@ -39,6 +39,7 @@ class NotesIndex extends React.Component {
                 deleteNote={this.parentDeleteNote}
                 openModal={this.props.openModal}
                 closeModal={this.props.closeModal}
+                history={this.props.history}
             />
         ))
     }

@@ -8,12 +8,18 @@ class NoteShow extends React.Component {
         // this.props.fetchNote(this.props.match.params.id)
         this.props.fetchNote(this.props.note.id)
         this.handleClick = this.handleClick.bind(this)
+        this.handleDeleteClick = this.handleDeleteClick.bind(this)
     }
 
     handleClick() {
         return (() => {
             this.props.closeModal()
         })
+    }
+
+    handleDeleteClick(noteId) {
+        this.props.deleteNote(noteId)
+            this.props.closeModal()
     }
 
 
@@ -25,7 +31,7 @@ class NoteShow extends React.Component {
                 <div id="show-buttons" ></div>
                     <div onClick={this.handleClick}>
                     <button
-                        onClick={() => deleteNote(note.id)}
+                        onClick={() => this.handleDeleteClick(note.id)}
                         id="show-delete-button"
                         ><i className="far fa-trash-alt"></i>
                     </button>

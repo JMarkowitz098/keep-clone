@@ -9,6 +9,7 @@ class NoteForm extends React.Component {
         this.state = this.props.note || {title: '', body: ''}
         this.formAttrs = {};
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleTitleClick = this.handleTitleClick.bind(this)
     }
 
     handleChange(type) {
@@ -34,13 +35,18 @@ class NoteForm extends React.Component {
         this.setTitleAndCloseClass("cn-body-input", "cn-close-button", "hide");
         this.setTitlePlaceholder()
         // this.setBodyInnerText()
-        {this.props.formType === "Edit Form" ? this.props.closeModal() : null}
+        { this.props.formType === "Edit Form" ? this.closeModalAndPushToIndex() : null}
         if (this.state.title !== "" || this.state.body !== ""){
             this.props.action(note)
             .then(() => this.setState({title: '',body: ''}))
             .then(() => this.props.fetchNotes())
         }
             
+    }
+
+    closeModalAndPushToIndex() {
+        this.props.closeModal()
+        this.props.history.push("/notes/")
     }
 
     setTitleAndCloseClass (titleId, closeId, classVal) {
