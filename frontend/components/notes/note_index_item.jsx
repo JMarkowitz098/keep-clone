@@ -31,8 +31,8 @@ class NoteIndexItem extends React.Component{
     }
 
     render() {
-        const { note, deleteNote} = this.props
-        let linkText = note.title || note.body;
+        const { note} = this.props
+        let titleText = note.title || note.body;
         let bodyClass;
         { note.title === "" ? bodyClass = "hide" : bodyClass = "note-body"}
 
@@ -42,15 +42,15 @@ class NoteIndexItem extends React.Component{
                 onMouseOut={() => this.hideDeleteButton()}
                 onMouseDown={() => this.handleClick(note)}
             >
-                <div onClick={() => this.handleClick(note)} id="note-title">   
-                    <Link id="show-link" to={`/notes/${note.id}`}>{linkText}</Link>
-                </div>
+                <div onClick={() => this.handleClick(note)} id="note-title">{titleText}</div>
                 <p id={'note-body'} className={bodyClass}>{note.body}</p>
-                <button
-                    onClick={() => this.handleDeleteClick(note.id)}
-                    className="delete-button-hide"    
-                    id={`delete-button-${note.id}`}
-                ><i className="far fa-trash-alt"></i></button>
+                <div id='delete-button-container' onClick={() => this.handleDeleteClick(note.id)}>
+                    <button
+                        
+                        className="delete-button-hide"
+                        id={`delete-button-${note.id}`}
+                    ><i className="far fa-trash-alt"></i></button>
+                </div>
                 
             </li >
         )
