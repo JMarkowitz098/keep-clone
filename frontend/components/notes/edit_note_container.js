@@ -22,6 +22,7 @@ class EditNoteForm extends React.Component {
                 note={note} 
                 fetchNotes={fetchNotes}
                 closeModal={closeModal}
+                updateModalState={this.props.updateModalState}
             />
         );
     }
@@ -37,7 +38,6 @@ const mstp = (state, ownProps) => {
 }
 
 const mdtp = (dispatch) => {
-
     return {
         action: report => dispatch(updateNote(report)),
         fetchNotes: () => dispatch(fetchNotes()),

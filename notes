@@ -8,18 +8,20 @@
 9. Fix note position so it doesn't just match id. -done
 10. Make note you create first note -done
 12. Make it so clicking anywhere on the note opens the show note form -done
+14. Make it so note size doesnt change when trashcan appears -done
+
 
 Unfinished
 5. Make it so users are redirected to login page or error page if they use a broken link
 8. Make note text area expand as you type more
 9. Get clicking outside of note form to also submit -Priority for TA
-11. Make it so editing title on show page does not expand create note form
 13. Make it so when the page size changes the top of the create note form stays the same distance from the header
-14. Make it so note size doesnt change when trashcan appears
 15. Make it so the word email does not turn red when it errors and there is no input in the box
 16. Make it so modal does not open when I click delete note on index (Right now I close it right after) -Priority for TA
 17. Add transitions to css stuff -Priority for TA
 18. After note is certain height hide excess text on index page and add scroll on show page
+11. Make it so editing title on show page does not expand create note form
+    -Now won't expand at all
 
 Idea: Track note position in db
 Possibly use debounce so update after dragging is done

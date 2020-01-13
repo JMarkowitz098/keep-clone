@@ -14,17 +14,22 @@ class NoteForm extends React.Component {
 
     handleChange(type) {
         return (e) => {
+           
             this.setState({ [type]: e.target.value });
-            // this.setState({ [type]: e.target.value || e.target.innerText });
+                // this.setState({ [type]: e.target.value || e.target.innerText });
+            
+            if (this.props.formType === "Edit Form") {
+                this.props.updateModalState(type, e.target.value)
+            }
         };
     }
 
     handleTitleClick() {
         return (e) => {
-            if (this.props.formName !== "Edit Note"){
-                this.setTitleAndCloseClass("cn-body-input", "cn-close-button", "none");
-                this.changePlaceholderValues()
-            }
+            this.setTitleAndCloseClass(
+                    this.formAttrs['titleInput'], 
+                    this.formAttrs['titleInput'], "none");
+            this.changePlaceholderValues()
         }
     }
 
@@ -57,8 +62,8 @@ class NoteForm extends React.Component {
     }
 
     changePlaceholderValues() {
-        let title = document.getElementById("cn-title-input");
-        let body = document.getElementById("cn-body-input");
+        let title = document.getElementById(this.formAttrs['titleInput']);
+        let body = document.getElementById(this.formAttrs['titleInput']);
         title.setAttribute("placeholder", "Title");
         body.setAttribute("placeholder", "Take a note...");
         // body.setAttribute("data-text", "Take a note...");
@@ -104,8 +109,12 @@ class NoteForm extends React.Component {
         this.formAttrs['textAreaClass'] = ''
     }
 
+    handleTextArea() {
+        return () => {
 
-//this.props.history.push(`/notes/${note.id}`)
+        }
+    }
+
     render() {
         this.setInitialFormAttrs()
         
@@ -129,6 +138,7 @@ class NoteForm extends React.Component {
                         className={this.formAttrs.textAreaClass}
                         id={this.formAttrs.bodyInput}
                         autoComplete="off"
+                        onKeyUp={this.handleTextArea()}
                         />
                     {/* <div  
                         contentEditable

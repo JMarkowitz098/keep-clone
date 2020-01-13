@@ -7,6 +7,11 @@ class NoteShow extends React.Component {
     componentDidMount() {
         // this.props.fetchNote(this.props.match.params.id)
         this.props.fetchNote(this.props.note.id)
+        
+            .then(response => {
+                console.log(response)
+                this.props.setInitialModalState(response.note)
+            })
         this.handleClick = this.handleClick.bind(this)
         this.handleDeleteClick = this.handleDeleteClick.bind(this)
     }
@@ -27,7 +32,7 @@ class NoteShow extends React.Component {
         const {note, deleteNote} = this.props
         return(
             <div>
-                <EditNoteContainer />
+                <EditNoteContainer updateModalState={this.props.updateModalState} />
                 <div id="show-buttons" ></div>
                     <div onClick={this.handleClick}>
                     <button
