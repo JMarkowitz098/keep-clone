@@ -27,8 +27,6 @@ class NotesIndex extends React.Component {
         return this.props.notes.sort((a,b) => a.position - b.position)
     }
 
-  
-
     renderNotes() {
         let sortedNotes = this.sortNotes()
         return sortedNotes.map((note) => (

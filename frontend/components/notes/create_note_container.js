@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import NoteForm from "../notes/note_form"
+import CreateNoteForm from "../notes/create_note_form"
 import { createNote, fetchNotes } from "../../actions/note_actions"
 
 const mstp = (state) => ({
@@ -11,4 +11,4 @@ const mdtp = (dispatch) => ({
     fetchNotes: () => dispatch(fetchNotes())
 })
 
-export default connect(mstp, mdtp)(NoteForm)
+export default connect(mstp, mdtp)(CreateNoteForm)
