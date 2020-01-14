@@ -6,10 +6,10 @@
   left: 0;
   background: rgba(235,235,235,.7);
   z-index: 99;
-  transition: 5s;
 }
 
 .modal-child {
+  margin-top: 125px;
   position: absolute;
   top: 25%;
   left: 50%;
@@ -39,7 +39,6 @@
     box-shadow: 0px 0px 3px 1px rgb(226,227,227);
     background-color: #fff475;
     border-color: #fff475;
-
 }
 
 #ef-title-input {
@@ -48,11 +47,11 @@
     // font-size: 15px;
     letter-spacing: 0.00625em;
     font-family: "Google Sans", Roboto, Arial, sans-serif;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 500;
     line-height: 1.5rem;
     background-color: #fff475;
-    padding: 10px 10px 0px 15px;
+    padding: 10px 0px 0px 15px;
 
 
 }
@@ -66,16 +65,17 @@
     width: 110px;
     resize: none;
     min-height: 5em;
-	  max-height: 50vh;
+	max-height: 50vh;
     width: 100%;
     border: none;
-    padding: 15px 10px 10px 15px;
+    padding: 15px 0px 10px 15px;
     background-color: #fff475;
+    overflow: hidden;
 
 
     letter-spacing: .01428571em;
     font-family: Roboto,Arial,sans-serif;
-    font-size: .875rem;
+    font-size: 1rem;
     font-weight: 400;
     line-height: 1.25rem;
 
@@ -131,21 +131,8 @@
 
 #show-delete-button:hover {
     background-color: rgba(0, 0, 0, 0.123);
-    border-radius: 12px;
+    border-radius: 25px;
     box-shadow: inset 0 0 0 1px transparent;
     box-sizing: border-box;
-}
 
-#edit-note-container{
-    // padding: 10px;
-    // width: 600px;
-    // margin: 5px;
-    // list-style: none;
-    // box-sizing: border-box; 
-    // border: 1px solid   ;
-    // box-sizing: border-box; 
-    // border-radius: 8px;
-    // box-shadow: 0px 0px 3px 1px rgb(226,227,227);
-    // background-color: #fff475;
-    // border-color: #fff475;
 }

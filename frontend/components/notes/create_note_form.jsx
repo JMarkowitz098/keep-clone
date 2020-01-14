@@ -16,6 +16,13 @@ class CreateNoteForm extends React.Component {
         };
     }
 
+    growTextArea() {
+        let textField = document.getElementById('cn-body-input')
+        if (textField.clientHeight < textField.scrollHeight) {
+            textField.style.height = (textField.scrollHeight * 2 - textField.clientHeight) + "px";
+        }
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         const note = Object.assign({}, this.state);
@@ -49,6 +56,7 @@ class CreateNoteForm extends React.Component {
                         className={'hide'}
                         id={'cn-body-input'}
                         autoComplete="off"
+                        onKeyUp={(e) => this.growTextArea()}
                     />
                     <input type="submit" value="Close" className={'hide'} id={'cn-close-button'}></input>
                 </form>

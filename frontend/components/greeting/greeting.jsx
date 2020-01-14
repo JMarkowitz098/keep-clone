@@ -16,7 +16,7 @@ class Greeting extends React.Component {
         return (
             <div className="header-fixed">
                 <span >
-                    <div id="header-menu-icon"><i className="fas fa-bars"></i></div>
+                    {/* <div id="header-menu-icon"><i className="fas fa-bars"></i></div> */}
                     <img src={window.lburl} alt="lightbulb logo"/>
                     <h2>Keep</h2>
                 </span>

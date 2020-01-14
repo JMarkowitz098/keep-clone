@@ -1,7 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
-
-
 
 class NoteIndexItem extends React.Component{
     constructor(props) {
@@ -11,23 +8,34 @@ class NoteIndexItem extends React.Component{
         this.hideDeleteButton = this.hideDeleteButton.bind(this)
     }
 
-    handleClick(note) {
-        this.props.history.push(`/notes/${note.id}`)
-        this.props.openModal('show', note)
+    handleClick(note,e) {
+        if (!this.isDeleteClick(e.target.className)){
+            this.props.history.push(`/notes/${note.id}`)
+            this.props.openModal('show', note)
+        }
     }
 
     handleDeleteClick(noteId) {
         this.props.deleteNote(noteId)
-        this.props.closeModal()
+    }
+
+    isDeleteClick(className) {
+        if (className === "delete-button" 
+        || className === 'delete-button-hide' 
+        || className === "far fa-trash-alt") {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     showDeleteButton() {
-            let deleteButton = document.getElementById(`delete-button-${this.props.note.id}`);
-            deleteButton.setAttribute('class', 'delete-button')
+        let deleteButton = document.getElementById(`delete-button-${this.props.note.id}`);
+        deleteButton.setAttribute('class', 'delete-button')
     }
     hideDeleteButton() {
         let deleteButton = document.getElementById(`delete-button-${this.props.note.id}`);
-            deleteButton.setAttribute('class', 'delete-button-hide')
+        deleteButton.setAttribute('class', 'delete-button-hide')
     }
 
     render() {
@@ -40,9 +48,9 @@ class NoteIndexItem extends React.Component{
             < li id="note-container" 
                 onMouseOver={() => this.showDeleteButton()}
                 onMouseOut={() => this.hideDeleteButton()}
-                onMouseDown={() => this.handleClick(note)}
+                onMouseDown={(e) => this.handleClick(note, e)}
             >
-                <div onClick={() => this.handleClick(note)} id="note-title">{titleText}</div>
+                <div id="note-title">{titleText}</div>
                 <p id={'note-body'} className={bodyClass}>{note.body}</p>
                 <div id='delete-button-container' onClick={() => this.handleDeleteClick(note.id)}>
                     <button
@@ -50,7 +58,6 @@ class NoteIndexItem extends React.Component{
                         id={`delete-button-${note.id}`}
                     ><i className="far fa-trash-alt"></i></button>
                 </div>
-                
             </li >
         )
             

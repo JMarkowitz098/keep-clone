@@ -9,10 +9,26 @@ class EditNoteForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    componentDidMount() {
+        this.growTextArea()
+        //Figure out how to make it not go off top of screen
+    }
+
     handleChange(type) {
+
         return (e) => {
+            this.growTextArea()
             this.setState({ [type]: e.target.value });
             this.props.updateModalState(type, e.target.value)
+        }
+    }
+
+    growTextArea() {
+        let textField = document.getElementById('ef-body-input')
+        if (textField.clientHeight < textField.scrollHeight) {
+            textField.style.height = (textField.scrollHeight * 2 - textField.clientHeight) + "px";
+        } else {
+            textField.style.height = (textField.scrollHeight / 2 - textField.clientHeight) + "px";
         }
     }
 
@@ -48,7 +64,7 @@ class EditNoteForm extends React.Component {
                         id={'ef-title-input'}
                         onChange={this.handleChange('title')}
                         value={this.state.title}
-                        placeholder="Take a note..."
+                        placeholder="Title"
                         autoComplete="off"
                     />
                     <textarea
@@ -56,6 +72,9 @@ class EditNoteForm extends React.Component {
                         value={this.state.body}
                         id={'ef-body-input'}
                         autoComplete="off"
+                        placeholder="Take a note..."
+                        onKeyUp={(e) => this.growTextArea()}
+
                     />
                 
                     <input type="submit" value="Close" id={'ef-close-button'}></input>
