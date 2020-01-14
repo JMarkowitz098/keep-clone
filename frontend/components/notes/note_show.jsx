@@ -9,18 +9,11 @@ class NoteShow extends React.Component {
             .then(response => {
                 this.props.setInitialModalState(response.note)
             })
-        this.handleClick = this.handleClick.bind(this)
         this.handleDeleteClick = this.handleDeleteClick.bind(this)
     }
 
     shrinkNote() {
 
-    }
-
-    handleClick() {
-        return ((e) => {
-            this.props.closeModal()
-        })
     }
 
     handleDeleteClick(noteId) {

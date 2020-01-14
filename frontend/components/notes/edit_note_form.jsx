@@ -15,7 +15,6 @@ class EditNoteForm extends React.Component {
     }
 
     handleChange(type) {
-
         return (e) => {
             this.growTextArea()
             this.setState({ [type]: e.target.value });
@@ -31,7 +30,6 @@ class EditNoteForm extends React.Component {
     }
 
     handleSubmit(e) {
-        debugger
         e.preventDefault();
         const note = Object.assign({}, this.state);
         if (this.state.title !== "" || this.state.body !== "") {

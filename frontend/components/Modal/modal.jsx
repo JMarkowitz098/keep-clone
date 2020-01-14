@@ -7,7 +7,7 @@ class Modal extends React.Component {
         this.state = {}
         this.updateModalState = this.updateModalState.bind(this)
         this.closeModalAndPushToIndex = this.closeModalAndPushToIndex.bind(this)
-        // this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
         this.setInitialModalState = this.setInitialModalState.bind(this)
     }
     
@@ -24,40 +24,49 @@ class Modal extends React.Component {
         this.props.history.push("/notes/")
     }
 
-    // handleSubmit(e) {
-    //     debugger
-    //     e.preventDefault();
-    //     if (this.state.title !== "" || this.state.body !== "") {
-    //         this.props.updateNote(this.state)
-    //             .then(() => this.setState({ title: '', body: '' }))
-    //             .then(this.closeModalAndPushToIndex) 
-    //     }
-    // }
+    shrinkNote(e) {
+        // debugger
+        // let note = e.currentTarget;
+        
+        // note.setAttribute('class', 'modal-child-close')
+    }
+
+    handleSubmit(e) {
+        debugger
+        e.preventDefault();
+        this.shrinkNote(e);
+        // sleep(2000);
+        if (this.state.title !== "" || this.state.body !== "") {
+            this.props.updateNote(this.state)
+                .then(() => this.setState({ title: '', body: '' }))
+                .then(this.closeModalAndPushToIndex) 
+        }
+    }
 
     render() {
         const { modal } = this.props;
-
+        
         if (!modal) {
             return null;
         }
         let component;
-
+        
         switch (modal.modal) {
             case 'show':
                 component = <NoteShowContainer 
-                    note={modal.note}
-                    updateModalState={this.updateModalState} 
-                    setInitialModalState={this.setInitialModalState}
+                note={modal.note}
+                updateModalState={this.updateModalState} 
+                setInitialModalState={this.setInitialModalState}
                 />
                 break;
-            default:
-                return null;
-        }
-
+                default:
+                    return null;
+                }
+                
         return (
             <div className="modal-background" onClick={this.handleSubmit}>
                 <div className="modal-child" onClick={e => e.stopPropagation()}>
-                    {component}
+                     {component} 
                 </div>
             </div>
         );

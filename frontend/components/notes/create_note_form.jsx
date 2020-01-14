@@ -24,6 +24,7 @@ class CreateNoteForm extends React.Component {
     }
 
     handleSubmit(e) {
+        debugger
         e.preventDefault();
         const note = Object.assign({}, this.state);
         CreateNoteUtil.shrinkNoteForm()

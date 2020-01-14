@@ -49,7 +49,8 @@ class NoteIndexItem extends React.Component{
         { note.title === "" ? bodyClass = "hide" : bodyClass = "note-body"}
 
         return(
-                < li id="note-container"
+                < li className="note-container"
+                    id={`note-container-${note.id}`}
                     onMouseOver={() => this.showDeleteButton()}
                     onMouseOut={() => this.hideDeleteButton()}
                     onMouseDown={(e) => this.handleClick(note, e)}
@@ -62,7 +63,6 @@ class NoteIndexItem extends React.Component{
                             id={`delete-button-${note.id}`}
                         ><i className="far fa-trash-alt"></i></button>
                     </div>
-                    {/* <div id="animate">ANIMATE ME</div> */}
                 </li >
             
         )
