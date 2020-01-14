@@ -6,14 +6,18 @@
   left: 0;
   background: rgba(235,235,235,.7);
   z-index: 99;
+
+  transition: opacity 2000ms ease-in-out;
 }
 
 .modal-child {
   margin-top: 125px;
   position: absolute;
-  top: 25%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 30%;
+ 
+  animation-name: open-note;
+  animation-duration: 500ms;
 }
 
 
@@ -39,6 +43,8 @@
     box-shadow: 0px 0px 3px 1px rgb(226,227,227);
     background-color: #fff475;
     border-color: #fff475;
+
+    
 }
 
 #ef-title-input {

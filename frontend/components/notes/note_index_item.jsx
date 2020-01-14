@@ -10,8 +10,12 @@ class NoteIndexItem extends React.Component{
 
     handleClick(note,e) {
         if (!this.isDeleteClick(e.target.className)){
+            // let newNote = e.currentTarget
+            // newNote.setAttribute('class', 'open-note')
+            
             this.props.history.push(`/notes/${note.id}`)
             this.props.openModal('show', note)
+
         }
     }
 
@@ -45,20 +49,22 @@ class NoteIndexItem extends React.Component{
         { note.title === "" ? bodyClass = "hide" : bodyClass = "note-body"}
 
         return(
-            < li id="note-container" 
-                onMouseOver={() => this.showDeleteButton()}
-                onMouseOut={() => this.hideDeleteButton()}
-                onMouseDown={(e) => this.handleClick(note, e)}
-            >
-                <div id="note-title">{titleText}</div>
-                <p id={'note-body'} className={bodyClass}>{note.body}</p>
-                <div id='delete-button-container' onClick={() => this.handleDeleteClick(note.id)}>
-                    <button
-                        className="delete-button-hide"
-                        id={`delete-button-${note.id}`}
-                    ><i className="far fa-trash-alt"></i></button>
-                </div>
-            </li >
+                < li id="note-container"
+                    onMouseOver={() => this.showDeleteButton()}
+                    onMouseOut={() => this.hideDeleteButton()}
+                    onMouseDown={(e) => this.handleClick(note, e)}
+                >
+                    <div id="note-title">{titleText}</div>
+                    <p id={'note-body'} className={bodyClass}>{note.body}</p>
+                    <div id='delete-button-container' onClick={() => this.handleDeleteClick(note.id)}>
+                        <button
+                            className="delete-button-hide"
+                            id={`delete-button-${note.id}`}
+                        ><i className="far fa-trash-alt"></i></button>
+                    </div>
+                    {/* <div id="animate">ANIMATE ME</div> */}
+                </li >
+            
         )
             
     }

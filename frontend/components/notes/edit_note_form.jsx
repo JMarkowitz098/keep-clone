@@ -26,13 +26,12 @@ class EditNoteForm extends React.Component {
     growTextArea() {
         let textField = document.getElementById('ef-body-input')
         if (textField.clientHeight < textField.scrollHeight) {
-            textField.style.height = (textField.scrollHeight * 2 - textField.clientHeight) + "px";
-        } else {
-            textField.style.height = (textField.scrollHeight / 2 - textField.clientHeight) + "px";
+            textField.style.height = (textField.scrollHeight * 2 - textField.clientHeight - 10) + "px";
         }
     }
 
     handleSubmit(e) {
+        debugger
         e.preventDefault();
         const note = Object.assign({}, this.state);
         if (this.state.title !== "" || this.state.body !== "") {

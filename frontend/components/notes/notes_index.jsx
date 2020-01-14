@@ -31,7 +31,7 @@ class NotesIndex extends React.Component {
         let sortedNotes = this.sortNotes()
         return sortedNotes.map((note) => (
             <NoteIndexItem 
-                key={note.id} 
+                key={note.id}
                 note={note} 
                 position={note.position} 
                 deleteNote={this.parentDeleteNote}

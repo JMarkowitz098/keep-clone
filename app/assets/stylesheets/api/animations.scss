@@ -1,0 +1,19 @@
+@keyframes open-note{
+    from{
+        transform: scale(.43);
+
+    }
+    to{
+        transform: scale(1);
+    }
+}
+
+@keyframes close-note{
+    from{
+        transform: scale(2.32);
+
+    }
+    to{
+        transform: scale(1);
+    }
+}

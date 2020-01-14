@@ -18,11 +18,14 @@
 
 Unfinished
 5. Make it so users are redirected to login page or error page if they use a broken link
-8. Make note text area expand as you type more
+8. Make note text area expand as you type more -done
+    -get it to shrink
 13. Make it so when the page size changes the top of the create note form stays the same distance from the header
 15. Make it so the word email does not turn red when it errors and there is no input in the box
 17. Add transitions to css stuff -Priority for TA
+    -animations
 18. After note is certain height hide excess text on index page and add scroll on show page
+19. Modal should not close when selecting text
 
 
 Idea: Track note position in db

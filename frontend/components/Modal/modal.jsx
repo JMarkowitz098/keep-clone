@@ -7,7 +7,7 @@ class Modal extends React.Component {
         this.state = {}
         this.updateModalState = this.updateModalState.bind(this)
         this.closeModalAndPushToIndex = this.closeModalAndPushToIndex.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
+        // this.handleSubmit = this.handleSubmit.bind(this)
         this.setInitialModalState = this.setInitialModalState.bind(this)
     }
     
@@ -24,15 +24,15 @@ class Modal extends React.Component {
         this.props.history.push("/notes/")
     }
 
-    handleSubmit(e) {
-        e.preventDefault();
-        if (this.state.title !== "" || this.state.body !== "") {
-            this.props.updateNote(this.state)
-                .then(() => this.setState({ title: '', body: '' }))
-                .then(this.closeModalAndPushToIndex) 
-        }
-        debugger
-    }
+    // handleSubmit(e) {
+    //     debugger
+    //     e.preventDefault();
+    //     if (this.state.title !== "" || this.state.body !== "") {
+    //         this.props.updateNote(this.state)
+    //             .then(() => this.setState({ title: '', body: '' }))
+    //             .then(this.closeModalAndPushToIndex) 
+    //     }
+    // }
 
     render() {
         const { modal } = this.props;
@@ -48,7 +48,7 @@ class Modal extends React.Component {
                     note={modal.note}
                     updateModalState={this.updateModalState} 
                     setInitialModalState={this.setInitialModalState}
-                />;
+                />
                 break;
             default:
                 return null;

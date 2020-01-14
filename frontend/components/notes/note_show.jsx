@@ -13,8 +13,12 @@ class NoteShow extends React.Component {
         this.handleDeleteClick = this.handleDeleteClick.bind(this)
     }
 
+    shrinkNote() {
+
+    }
+
     handleClick() {
-        return (() => {
+        return ((e) => {
             this.props.closeModal()
         })
     }
