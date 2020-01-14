@@ -5,7 +5,7 @@ import NotesIndexContainer from "./notes/notes_index_container"
 import LoginFormContainer from './sessions/login_form_container'
 import SignupFormContainer from './sessions/create_user_form_container'
 import { AuthRoute, ProtectedRoute } from '../util/route_util'
-import ModalContainer from '../components/Modal/modal_container'
+import ModalContainer from '../components/show_modal/modal_container'
 const App = () => (
     <div>
         <header>

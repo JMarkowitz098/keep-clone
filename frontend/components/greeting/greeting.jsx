@@ -6,7 +6,7 @@ class Greeting extends React.Component {
         return (
             <header id="header" >
                 <h1>{this.props.currentUser.email}</h1>
-                <button onClick={this.props.logout} >Log Out</button>
+                <button id="logout-button" onClick={this.props.logout} >Log Out</button>
             </header>
         )
 

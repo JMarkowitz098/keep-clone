@@ -32,10 +32,9 @@ class Modal extends React.Component {
     }
 
     handleSubmit(e) {
-        debugger
+
         e.preventDefault();
         this.shrinkNote(e);
-        // sleep(2000);
         if (this.state.title !== "" || this.state.body !== "") {
             this.props.updateNote(this.state)
                 .then(() => this.setState({ title: '', body: '' }))

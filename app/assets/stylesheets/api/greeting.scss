@@ -1,6 +1,6 @@
 #header {
     display: flex;
-    // justify-content: flex-end;
+    align-items: center;
     top: 0;
     left: 0;
     right: 0;
@@ -13,6 +13,7 @@ h1 {
     font: 400 14px/19px Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
     letter-spacing: normal;
     text-align: center;
+    margin: 10px
 }
 .header-fixed { 
     position: fixed; 
@@ -25,6 +26,25 @@ h1 {
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid rgb(218,220,223);
+}
+
+#logout-button {
+    cursor: pointer;
+    background-color: #ffffff;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    display: inline-block;
+    font: 500 14px/16px Google Sans,Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+    letter-spacing: .15px;
+    margin: 16px;
+    outline: 0;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    white-space: normal;
+}
+#logout-button:hover {
+    background-color: rgb(247,248,248);
 }
 
 .header-fixed span {
