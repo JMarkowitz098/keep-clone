@@ -5,11 +5,8 @@ import EditNoteContainer from './edit_note_container'
 class NoteShow extends React.Component {
 
     componentDidMount() {
-        // this.props.fetchNote(this.props.match.params.id)
         this.props.fetchNote(this.props.note.id)
-        
             .then(response => {
-                console.log(response)
                 this.props.setInitialModalState(response.note)
             })
         this.handleClick = this.handleClick.bind(this)
@@ -27,19 +24,13 @@ class NoteShow extends React.Component {
             this.props.closeModal()
     }
 
-
     render() {
-        const {note, deleteNote} = this.props
+        const {note} = this.props
         return(
-            <div id="edit-note-and-delete-container">
-                <EditNoteContainer updateModalState={this.props.updateModalState} />
-                <div onClick={this.handleClick} id="delete-button-container">
-                    <button
-                        onClick={() => this.handleDeleteClick(note.id)}
-                        id="show-delete-button"
-                        ><i className="far fa-trash-alt"></i>
-                    </button>
-                </div>
+            <div id="edit-note-container">
+                <EditNoteContainer 
+                    updateModalState={this.props.updateModalState} 
+                    noteId={note.id}/>
             </div>
         )
     }

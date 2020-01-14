@@ -5,7 +5,7 @@
   right: 0;
   left: 0;
   background: rgba(235,235,235,.7);
-  z-index: 10;
+  z-index: 99;
   transition: 5s;
 }
 
@@ -21,24 +21,25 @@
 #ef-div {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    // padding: 10px;
-    // width: 600px;
-    // margin: 5px;
-    // list-style: none;
-    // box-sizing: border-box; 
-    // border: 1px solid   ;
-    // box-sizing: border-box; 
-    // border-radius: 8px;
-    // box-shadow: 0px 0px 3px 1px rgb(226,227,227);
-    // background-color: #fff475;
-    // border-color: #fff475;
-
+    // justify-content: center;
 }
 
 .ef-form-container{
     display: flex;
     flex-direction: column;
+
+    padding: 10px;
+    width: 600px;
+    margin: 5px;
+    list-style: none;
+    box-sizing: border-box; 
+    border: 1px solid   ;
+    box-sizing: border-box; 
+    border-radius: 8px;
+    box-shadow: 0px 0px 3px 1px rgb(226,227,227);
+    background-color: #fff475;
+    border-color: #fff475;
+
 }
 
 #ef-title-input {
@@ -51,6 +52,8 @@
     font-weight: 500;
     line-height: 1.5rem;
     background-color: #fff475;
+    padding: 10px 10px 0px 15px;
+
 
 }
 
@@ -66,7 +69,7 @@
 	  max-height: 50vh;
     width: 100%;
     border: none;
-    margin-top: 20px;
+    padding: 15px 10px 10px 15px;
     background-color: #fff475;
 
 
@@ -111,14 +114,11 @@
     display: none;
 }
 
-#show-buttons {
-    display: flex;
-    flex-direction: column;
-    // justify-content: center;
-
-}
-
 #show-delete-button {
+    position: relative;
+    bottom: 50px;
+    left: 10px;
+
     font-size: 1.4em;
     cursor: pointer;
     font-size: 1.2em;
@@ -126,6 +126,7 @@
     height: inherit;
     width: inherit;
     padding: 10px;
+    align-self: flex-start;
 }
 
 #show-delete-button:hover {
@@ -135,24 +136,16 @@
     box-sizing: border-box;
 }
 
-#delete-button-container {
-    width: 40px;
-    height: 40px;
-    z-index: 10;
-    justify-self: flex-start;
-
-}
-
-#edit-note-and-delete-container{
-    padding: 10px;
-    width: 600px;
-    margin: 5px;
-    list-style: none;
-    box-sizing: border-box; 
-    border: 1px solid   ;
-    box-sizing: border-box; 
-    border-radius: 8px;
-    box-shadow: 0px 0px 3px 1px rgb(226,227,227);
-    background-color: #fff475;
-    border-color: #fff475;
+#edit-note-container{
+    // padding: 10px;
+    // width: 600px;
+    // margin: 5px;
+    // list-style: none;
+    // box-sizing: border-box; 
+    // border: 1px solid   ;
+    // box-sizing: border-box; 
+    // border-radius: 8px;
+    // box-shadow: 0px 0px 3px 1px rgb(226,227,227);
+    // background-color: #fff475;
+    // border-color: #fff475;
 }

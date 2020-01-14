@@ -5,7 +5,6 @@ import { Link, withRouter } from 'react-router-dom';
 class EditNoteForm extends React.Component {
     constructor(props) {
         super(props)
-
         this.state = this.props.note || { title: '', body: '' }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -20,17 +19,23 @@ class EditNoteForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const note = Object.assign({}, this.state);
-        this.closeModalAndPushToIndex()
         if (this.state.title !== "" || this.state.body !== "") {
             this.props.action(note)
-                .then(() => this.setState({ title: '', body: '' }))
-                .then(() => this.props.fetchNotes())
+            .then(() => this.setState({ title: '', body: '' }))
+            .then(() => this.props.fetchNotes())
         }
+        this.closeModalAndPushToIndex()
     }
 
     closeModalAndPushToIndex() {
         this.props.closeModal()
         this.props.history.push("/notes/")
+    }
+
+    handleDeleteClick(noteId) {
+        this.props.deleteNote(noteId)
+            .then(this.props.history.push("/notes/"))
+        this.props.closeModal()
     }
 
     render() {
@@ -55,6 +60,11 @@ class EditNoteForm extends React.Component {
                 
                     <input type="submit" value="Close" id={'ef-close-button'}></input>
                 </form>
+                <button
+                    onClick={() => this.handleDeleteClick(this.props.noteId)}
+                    id="show-delete-button"
+                ><i className="far fa-trash-alt"></i>
+                </button>
             </div>
         )
     }

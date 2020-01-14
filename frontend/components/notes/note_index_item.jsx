@@ -46,7 +46,6 @@ class NoteIndexItem extends React.Component{
                 <p id={'note-body'} className={bodyClass}>{note.body}</p>
                 <div id='delete-button-container' onClick={() => this.handleDeleteClick(note.id)}>
                     <button
-                        
                         className="delete-button-hide"
                         id={`delete-button-${note.id}`}
                     ><i className="far fa-trash-alt"></i></button>
