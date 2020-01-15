@@ -8,18 +8,21 @@ class CreateNoteForm extends React.Component {
 
         this.state = this.props.note || { title: '', body: '' }
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.clickMe = this.clickMe.bind(this)
     }
 
     componentDidMount() {
-        this.handleClickOutside();
+        document.addEventListener('click', this.clickMe);
     }
 
-    handleClickOutside() {
+    componentWillUnmount() {
+        document.removeEventListener('click', this.clickMe)
+    }
+
+    clickMe(event) {
         let cnForm = document.getElementById('cn-div');
-        document.addEventListener('click', (event) => {
-            let isClickInside = cnForm.contains(event.target);
-            if (!isClickInside) this.handleSubmit(event)
-        });
+        let isClickInside = cnForm.contains(event.target);
+        if (!isClickInside) this.handleSubmit(event)
     }
 
     handleChange(type) {
