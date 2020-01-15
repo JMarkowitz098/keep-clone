@@ -9,6 +9,7 @@ class Modal extends React.Component {
         this.closeModalAndPushToIndex = this.closeModalAndPushToIndex.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.setInitialModalState = this.setInitialModalState.bind(this)
+        
     }
     
     setInitialModalState(initialState) {
@@ -26,10 +27,21 @@ class Modal extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.updateNote(this.state)
-            .then(() => this.setState({ title: '', body: '' }))
-            .then(this.closeModalAndPushToIndex) 
+        if (this.submittable()){
+            this.props.updateNote(this.state)
+                .then(() => this.setState({ title: '', body: '' }))
+                .then(this.closeModalAndPushToIndex) 
+        }
     }
+
+    submittable(e) {
+        if (window.getSelection().toString().length > 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
 
     render() {
         const { modal } = this.props;

@@ -12,10 +12,6 @@ class NoteShow extends React.Component {
         this.handleDeleteClick = this.handleDeleteClick.bind(this)
     }
 
-    shrinkNote() {
-
-    }
-
     handleDeleteClick(noteId) {
         this.props.deleteNote(noteId)
             this.props.closeModal()

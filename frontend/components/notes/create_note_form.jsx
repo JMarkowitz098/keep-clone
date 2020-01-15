@@ -1,6 +1,5 @@
 import React from 'react'
 import * as CreateNoteUtil from '../../util/create_note_form_util'
-import { Link, withRouter } from 'react-router-dom';
 
 class CreateNoteForm extends React.Component {
     constructor(props) {
@@ -38,16 +37,27 @@ class CreateNoteForm extends React.Component {
         }
     }
 
+    submittable() {
+        if (window.getSelection().toString().length > 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     handleSubmit(e) {
         e.preventDefault();
-        const note = Object.assign({}, this.state);
-        CreateNoteUtil.shrinkNoteForm()
-        
-        if (this.state.title !== "" || this.state.body !== "") {
-            this.props.action(note)
-                .then(() => this.setState({ title: '', body: '' }))
-                .then(() => this.props.fetchNotes())
+        if (this.submittable()){
+            const note = Object.assign({}, this.state);
+            CreateNoteUtil.shrinkNoteForm()
+            
+            if (this.state.title !== "" || this.state.body !== "") {
+                this.props.action(note)
+                    .then(() => this.setState({ title: '', body: '' }))
+                    .then(() => this.props.fetchNotes())
+            }
         }
+        
 
     }
 

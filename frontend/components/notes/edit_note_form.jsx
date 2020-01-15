@@ -49,6 +49,8 @@ class EditNoteForm extends React.Component {
         this.props.closeModal()
     }
 
+    
+
     render() {
 
         return (
@@ -69,7 +71,6 @@ class EditNoteForm extends React.Component {
                         autoComplete="off"
                         placeholder="Take a note..."
                         onKeyUp={(e) => this.growTextArea()}
-
                     />
                 
                     <input type="submit" value="Close" id={'ef-close-button'} onClick={this.handleSubmit} />
