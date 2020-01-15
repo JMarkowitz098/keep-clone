@@ -32,11 +32,9 @@ class EditNoteForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const note = Object.assign({}, this.state);
-        if (this.state.title !== "" || this.state.body !== "") {
-            this.props.action(note)
+        this.props.action(note)
             .then(() => this.setState({ title: '', body: '' }))
             .then(() => this.props.fetchNotes())
-        }
         this.closeModalAndPushToIndex()
     }
 
@@ -54,8 +52,8 @@ class EditNoteForm extends React.Component {
     render() {
 
         return (
-            <div id={'ef-div'}>
-                <form onSubmit={this.handleSubmit} className={'ef-form-container'}>
+            <div id={'ef-div'} >
+                <form className={'ef-form-container'}>
                     <input
                         type="text"
                         id={'ef-title-input'}
@@ -74,7 +72,7 @@ class EditNoteForm extends React.Component {
 
                     />
                 
-                    <input type="submit" value="Close" id={'ef-close-button'}></input>
+                    <input type="submit" value="Close" id={'ef-close-button'} onClick={this.handleSubmit} />
                 </form>
                 <button
                     onClick={() => this.handleDeleteClick(this.props.noteId)}

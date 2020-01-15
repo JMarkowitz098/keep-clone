@@ -10,6 +10,18 @@ class CreateNoteForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    componentDidMount() {
+        this.handleClickOutside();
+    }
+
+    handleClickOutside() {
+        let cnForm = document.getElementById('cn-div');
+        document.addEventListener('click', (event) => {
+            let isClickInside = cnForm.contains(event.target);
+            if (!isClickInside) this.handleSubmit(event)
+        });
+    }
+
     handleChange(type) {
         return (e) => {
             this.setState({ [type]: e.target.value });
@@ -24,7 +36,6 @@ class CreateNoteForm extends React.Component {
     }
 
     handleSubmit(e) {
-        debugger
         e.preventDefault();
         const note = Object.assign({}, this.state);
         CreateNoteUtil.shrinkNoteForm()

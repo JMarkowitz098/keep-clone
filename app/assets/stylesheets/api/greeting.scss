@@ -46,6 +46,9 @@ h1 {
 #logout-button:hover {
     background-color: rgb(247,248,248);
 }
+#logout-button:active {
+    background-color: #dadce0;
+}
 
 .header-fixed span {
     display: flex;

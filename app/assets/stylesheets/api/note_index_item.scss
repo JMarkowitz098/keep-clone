@@ -1,7 +1,6 @@
 .note-container {
     display: flex;
     flex-direction: column;
-    // padding: 20px;
     width: 258px;
     margin: 10px;
     padding-right: 25px;
@@ -11,12 +10,9 @@
     border-radius: 8px;
     background-color: #fff475;
     border-color: #fff475;
-
-    // animation-name: close-note;
-    // animation-duration: 3s;
 }
 
-#note-container:hover {
+.note-container:hover {
     border-radius: 8px;
     border: 1px solid;
     border-bottom: 2px solid;
@@ -27,6 +23,7 @@
 
 #note-title {
     width: 100%;
+	max-height: 10vh;
     border: none;
     letter-spacing: 0.00625em;
     font-family: "Google Sans", Roboto, Arial, sans-serif;
@@ -37,6 +34,8 @@
     color: #202124;
     text-decoration: none;
     padding: 10px 10px 0px 15px;
+    overflow: hidden;
+
 }
 
 #show-link {
@@ -56,10 +55,8 @@
 }
 
 #note-body {
-    width: 110px;
     resize: none;
-    min-height: 5em;
-	max-height: 50vh;
+	max-height: 40vh;
     width: 100%;
     border: none;
     margin-top: 5px;
@@ -70,6 +67,12 @@
     font-size: .875rem;
     font-weight: 400;
     line-height: 1.25rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+::-webkit-scrollbar {
+  width: 30px;
 }
 
 .delete-button {
@@ -88,6 +91,7 @@
     box-sizing: border-box;
 }
 
+
 #delete-button-container {
     // align-self: flex-start;
     width: 40px;
@@ -96,6 +100,7 @@
     z-index: 40;
     margin: 10px;
 }
+
 
 
 

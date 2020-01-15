@@ -24,22 +24,11 @@ class Modal extends React.Component {
         this.props.history.push("/notes/")
     }
 
-    shrinkNote(e) {
-        // debugger
-        // let note = e.currentTarget;
-        
-        // note.setAttribute('class', 'modal-child-close')
-    }
-
     handleSubmit(e) {
-
         e.preventDefault();
-        this.shrinkNote(e);
-        if (this.state.title !== "" || this.state.body !== "") {
-            this.props.updateNote(this.state)
-                .then(() => this.setState({ title: '', body: '' }))
-                .then(this.closeModalAndPushToIndex) 
-        }
+        this.props.updateNote(this.state)
+            .then(() => this.setState({ title: '', body: '' }))
+            .then(this.closeModalAndPushToIndex) 
     }
 
     render() {

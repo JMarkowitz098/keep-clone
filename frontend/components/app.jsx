@@ -9,8 +9,7 @@ import ModalContainer from '../components/show_modal/modal_container'
 const App = () => (
     <div>
         <header>
-            <link href="https://fonts.googleapis.com/css?family=Public+Sans&display=swap" rel="stylesheet"></link>
-            <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet"></link>
+            
         </header>
         
         <ModalContainer />
