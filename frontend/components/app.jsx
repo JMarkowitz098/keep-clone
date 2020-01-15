@@ -6,15 +6,17 @@ import LoginFormContainer from './sessions/login_form_container'
 import SignupFormContainer from './sessions/create_user_form_container'
 import { AuthRoute, ProtectedRoute } from '../util/route_util'
 import ModalContainer from '../components/show_modal/modal_container'
+import Sidebar from '../components/sidebar/sidebar'
+
 const App = () => (
-    <div>
+    <div id="main">
         <header>
             
         </header>
         
         <ModalContainer />
         <ProtectedRoute path="/" component={GreetingContainer} />
-        <ProtectedRoute path="/" component={SideBarContainer} />
+        <ProtectedRoute path="/" component={Sidebar} />
         <ProtectedRoute path="/notes" component={NotesIndexContainer} />
         
         <Switch>
