@@ -22,7 +22,7 @@ h1 {
     width: 100%; 
     height: 4em;
     background-color: #FFF; 
-    // z-index: 30; 
+    z-index: 2; 
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid rgb(218,220,223);
@@ -72,5 +72,17 @@ div h2 {
 #header-menu-icon {
     font-size: 1.4em;
     width: 2em;
+    align-self: center;
+    justify-self: center;
+}
+
+#header-menu-icon:hover {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.123);
+    border-radius: 25px;
+    box-shadow: inset 0 0 0 1px transparent;
+    box-sizing: border-box;
 }
 

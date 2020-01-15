@@ -7,9 +7,18 @@ class Sidebar extends React.Component {
     render() {
         return(
             <div className='sidenav' id="mySidenav">
-                <span><i className="fas fa-book-open"></i><a href="#">Portfolio</a></span>
-                <span><i className="fab fa-linkedin-in"></i><a href="#">LinkedIn</a></span>
-                <span><i className="far fa-envelope"></i><a href="#">Email</a></span>
+                {/* <span>
+                    <div><i className="fas fa-book-open"></i></div>
+                    <a href="#">Portfolio</a>
+                </span> */}
+                <span>
+                    <div><i className="fab fa-linkedin-in"></i></div>
+                    <a href="https://www.linkedin.com/in/jmarkowitz098/">LinkedIn</a>
+                </span>
+                {/* <span>
+                    <div><i className="far fa-envelope"></i></div>
+                    <a href="#">Email</a>
+                </span> */}
             </div>
         )
     }

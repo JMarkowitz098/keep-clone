@@ -2,6 +2,10 @@ import React from 'react'
 
 class Greeting extends React.Component {
 
+    componentWillUnmount() {
+        this.closeNav()
+    }
+
     loggedIn() {
         return (
             <header id="header" >
@@ -12,22 +16,23 @@ class Greeting extends React.Component {
 
     }
     openNav() {
-        if (document.getElementById("mySidenav")) {
-            document.getElementById("mySidenav").style.width = "250px";
+        let nav = document.getElementById("mySidenav")
+        if (nav) {
+            nav.style.width = "250px";
+            nav.style.display = "inline-block";
             document.getElementById("main").style.marginLeft = "250px";
-            document.getElementById("note-index-form-container").style.margin = "5% 0"
-            document.getElementById("mySidenav").style.display = "inline-block";
+            document.getElementById("note-index-form-container").style.margin = "5.7% 0 5% 0"
 
         }
     }
 
-    /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
     closeNav() {
-        if (document.getElementById("mySidenav")) {
-            document.getElementById("mySidenav").style.width = "0";
+        let nav = document.getElementById("mySidenav")
+        if (nav) {
+            nav.style.width = "0";
+            nav.style.display = "none";
             document.getElementById("main").style.marginLeft = "0";
             document.getElementById("note-index-form-container").style.margin = "5% 10%"
-            document.getElementById("mySidenav").style.display = "none";
         }
     }
 
