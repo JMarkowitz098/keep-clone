@@ -14,6 +14,7 @@ const App = () => (
         
         <ModalContainer />
         <ProtectedRoute path="/" component={GreetingContainer} />
+        <ProtectedRoute path="/" component={SideBarContainer} />
         <ProtectedRoute path="/notes" component={NotesIndexContainer} />
         
         <Switch>
