@@ -40,7 +40,7 @@ class EditNoteForm extends React.Component {
         e.preventDefault();
         const note = Object.assign({}, this.state);
         this.props.action(note)
-            .then(() => this.setState({ title: '', body: '' }))
+            // .then(() => this.setState({ title: '', body: '' })) //Set does not need to be reset because component is closed on submit
             .then(() => this.props.fetchNotes())
         this.closeModalAndPushToIndex()
     }
