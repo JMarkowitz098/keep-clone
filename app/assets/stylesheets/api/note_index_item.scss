@@ -5,7 +5,7 @@
     margin: 10px;
     padding-right: 25px;
     list-style: none;
-    border: 1px solid transparent;
+    border: 2px solid transparent;
     box-sizing: border-box; 
     border-radius: 8px;
     background-color: $yellow;
@@ -13,10 +13,10 @@
 
     &:hover {
         border-radius: 8px;
-        border: 1px solid;
-        border-bottom: 1px solid;
+        border: 2px solid;
+        border-bottom: 2px solid;
         border-color: rgb(193,195,196);
-        box-shadow: 0px 0px 3px 1px rgb(226,227,227);
+        box-shadow: 0px 0px 3px 2px rgb(226,227,227);
         height: inherit;
     }
 }

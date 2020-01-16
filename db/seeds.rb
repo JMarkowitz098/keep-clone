@@ -10,6 +10,8 @@
 ApplicationRecord.transaction do
     User.destroy_all;
     Note.destroy_all
+    ApplicationRecord.connection.reset_pk_sequence!('users')
+    ApplicationRecord.connection.reset_pk_sequence!('notes')
 
     users = [
         User.create!(email: "superman@gmail.com",  password: "greenrock"),

@@ -1,8 +1,7 @@
 
 #cn-div {
-    display: flex;
+    @include flex(center, none);
     flex-direction: column;
-    justify-content: center;
     padding: 10px;
     width: 60%;
     margin-top: 50px;
@@ -15,23 +14,20 @@
     border-color: rgb(193,195,196);
     box-shadow: 0px 0px 3px 1px rgb(226,227,227);
     background-color: rgba(255, 255, 255, 0.36);
-
 }
 
 #cn-title-input {
     width: 100%;
     border: none;
-    // font-size: 15px;
     letter-spacing: 0.00625em;
-    font-family: "Google Sans", Roboto, Arial, sans-serif;
+    font-family: $google-sans;
     font-size: 1rem;
     font-weight: 500;
     line-height: 1.5rem;
-}
 
-#cn-title-input:focus,
-#cn-body-input {
-    outline: none
+    &:focus {
+        outline: none;
+    }
 }
 
 #cn-body-input {
@@ -42,82 +38,61 @@
     width: 100%;
     border: none;
     margin-top: 20px;
-
+    outline: none;
     letter-spacing: .01428571em;
-    font-family: Roboto,Arial,sans-serif;
+    font-family: $google-sans;
     font-size: .875rem;
     font-weight: 400;
     line-height: 1.25rem;
-    // overflow: hidden;
 
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: $white;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $light-grey;
+        border-width: 1px 1px 1px 2px;
+
+        &:hover {
+            cursor: pointer;
+            background-color: $dark-grey;
+        }
+    }  
 }
-
-#cn-body-input::-webkit-scrollbar {
-  width: 12px;
-}
-
-/* width */
-#cn-body-input::-webkit-scrollbar {
-  width: 10px;
-}
-
-/* Track */
-#cn-body-input::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.36);
-}
-
-/* Handle */
-#cn-body-input::-webkit-scrollbar-thumb {
-  background: rgba(0,0,0,.2);
-  border-width: 1px 1px 1px 2px;
-}
-
-/* Handle on hover */
-#cn-body-input::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(0,0,0,.2);
-    background-clip: padding-box;
-    border: solid transparent;
-    border-width: 1px 1px 1px 6px;
-    min-height: 28px;
-    padding: 100px 0 0;
-    box-shadow: inset 1px 1px 0 rgba(0,0,0,.1), inset 0 -1px 0 rgba(0,0,0,.07);
-}
-
 
 .cn-form-container{
     display: flex;
     flex-direction: column;
 }
 
-[contentEditable=true]:empty:not(:focus):before{
-    content:attr(data-text)
-}
-
 #cn-close-button {
     border: none;
     align-self: flex-end;
-    box-sizing: border-box;
     color: rgba(0,0,0,0.87);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     letter-spacing: .01785714em;
-    font-family: 'Google Sans',Roboto,Arial,sans-serif;
+    font-family: $google-sans;
     font-size: .875rem;
     font-weight: 500;
     line-height: 1.25rem;
     height: 36px;
     padding: 8px 24px;
     border-radius: 4px;
-}
 
-#cn-close-button:hover {
-    cursor: pointer;
-    background-color: rgba(95,99,104,0.039);
-}
+    &:hover {
+        cursor: pointer;
+        background-color: rgba(95,99,104,0.039);
+    }
 
-#cn-close-button:focus {
-    outline: none
+    &:focus {
+        outline: none
+    }
 }
 
 .hide {
