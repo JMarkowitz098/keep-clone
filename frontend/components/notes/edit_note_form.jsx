@@ -88,11 +88,11 @@ class EditNoteForm extends React.Component {
                         id="show-delete-button"
                     ><i className="far fa-trash-alt"></i>
                     </button>
-                    <button id= "blue-button" className="color-button" onClick={() => this.handleColorChange('blue') }></button>
-                    <button className="color-button" onClick={() => this.handleColorChange('yellow') }>Yellow</button>
-                    <button className="color-button" onClick={() => this.handleColorChange('green') }>Green</button>
-                    <button className="color-button" onClick={() => this.handleColorChange('red') }>Red</button>
-                    <button className="color-button" onClick={() => this.handleColorChange('purple') }>Purple</button>
+                    <button id="blue-button" className="color-button" onClick={() => this.handleColorChange('blue') }></button>
+                    <button id="yellow-button" className="color-button" onClick={() => this.handleColorChange('yellow') }></button>
+                    <button id="green-button" className="color-button" onClick={() => this.handleColorChange('green') }></button>
+                    <button id="red-button" className="color-button" onClick={() => this.handleColorChange('red') }></button>
+                    <button id="purple-button" className="color-button" onClick={() => this.handleColorChange('purple') }></button>
                 </div>
             </div>
         )

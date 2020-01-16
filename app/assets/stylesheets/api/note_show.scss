@@ -133,6 +133,7 @@
     padding: 8px 24px;
     border-radius: 4px;
     background-color: inherit;
+    z-index: 10;
 }
 
 #ef-close-button:hover {
@@ -159,10 +160,7 @@
 .color-button {
     cursor: pointer;
     padding: 10px;
-}
 
-#blue-button {
-    background-color: $blue;
     height: 26px;
     width: 26px;
     margin: 2px;
@@ -171,6 +169,22 @@
     border-width: 2px;
     border-style: solid;
     border-radius: 50%;
+}
+
+#blue-button {
+    background-color: $blue;
+}
+#yellow-button {
+    background-color: $yellow;
+}
+#green-button {
+    background-color: $green;
+}
+#red-button {
+    background-color: $red;
+}
+#purple-button {
+    background-color: $purple;
 }
 
 #show-delete-button {
