@@ -6,7 +6,6 @@
   left: 0;
   background: rgba(235,235,235,.7);
   z-index: 99;
-
   transition: opacity 2000ms ease-in-out;
 }
 
@@ -19,18 +18,6 @@
   animation-name: open-note;
   animation-duration: 500ms;
 }
-
-// #modal-child-close {
-//   margin-top: 125px;
-//   position: absolute;
-//   top: 0;
-//   left: 30%;
- 
-//   animation-name: close-note;
-//   animation-duration: 3s;
-// }
-
-
 
 #ef-div {
     display: flex;
@@ -50,8 +37,8 @@
     box-sizing: border-box; 
     border-radius: 8px;
     box-shadow: 0px 0px 3px 1px rgb(226,227,227);
-    background-color: #fff475;
-    border-color: #fff475;
+    background-color: $yellow;
+    border-color: $yellow;
 
     
 }
@@ -65,7 +52,7 @@
     font-size: 1.2rem;
     font-weight: 500;
     line-height: 1.5rem;
-    background-color: #fff475;
+    background-color: inherit;
     padding: 10px 0px 0px 0px;
 
 
@@ -84,7 +71,7 @@
     width: 100%;
     border: none;
     padding: 15px 10px 10px 0px;
-    background-color: #fff475;
+    background-color: inherit;
     text-overflow: ellipsis;
 
     letter-spacing: .01428571em;
@@ -106,7 +93,8 @@
 
 /* Track */
 #ef-body-input::-webkit-scrollbar-track {
-  background: #fff475;
+//   background: $yellow;
+  background: inherit;
 }
 
 /* Handle */
@@ -142,7 +130,7 @@
     height: 36px;
     padding: 8px 24px;
     border-radius: 4px;
-    background-color: #fff475;
+    background-color: inherit;
 
 }
 

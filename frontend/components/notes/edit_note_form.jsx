@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, withRouter } from 'react-router-dom';
+import { changeNoteColor } from '../../util/color_util'
 
 
 class EditNoteForm extends React.Component {
@@ -7,9 +7,11 @@ class EditNoteForm extends React.Component {
         super(props)
         this.state = this.props.note || { title: '', body: '' }
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleColorChange = this.handleColorChange.bind(this)
     }
 
     componentDidMount() {
+        changeNoteColor(this, this.props.note.color)
         this.growTextArea()
         //Figure out how to make it not go off top of screen
     }
@@ -20,6 +22,11 @@ class EditNoteForm extends React.Component {
             this.setState({ [type]: e.target.value });
             this.props.updateModalState(type, e.target.value)
         }
+    }
+
+    handleColorChange(color) {
+        changeNoteColor(this, color)
+        this.props.updateModalState('color', color)
     }
 
     growTextArea() {
@@ -80,6 +87,8 @@ class EditNoteForm extends React.Component {
                     id="show-delete-button"
                 ><i className="far fa-trash-alt"></i>
                 </button>
+                <button onClick={() => this.handleColorChange('blue') }>Blue</button>
+                <button onClick={() => this.handleColorChange('yellow') }>Yellow</button>
             </div>
         )
     }

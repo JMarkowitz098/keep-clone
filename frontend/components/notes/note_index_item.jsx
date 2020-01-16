@@ -1,4 +1,5 @@
 import React from 'react';
+import { changeNoteColor } from '../../util/color_util'
 
 class NoteIndexItem extends React.Component{
     constructor(props) {
@@ -6,13 +7,15 @@ class NoteIndexItem extends React.Component{
         this.handleClick = this.handleClick.bind(this)
         this.showDeleteButton = this.showDeleteButton.bind(this)
         this.hideDeleteButton = this.hideDeleteButton.bind(this)
+
+    }
+
+    componentDidMount() {
+        changeNoteColor(this, this.props.note.color)
     }
 
     handleClick(note,e) {
         if (!this.isDeleteClick(e.target.className)){
-            // let newNote = e.currentTarget
-            // newNote.setAttribute('class', 'open-note')
-            
             this.props.history.push(`/notes/${note.id}`)
             this.props.openModal('show', note)
 

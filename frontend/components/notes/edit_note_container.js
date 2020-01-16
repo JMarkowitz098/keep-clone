@@ -16,7 +16,7 @@ const mstp = (state, ownProps) => {
 
 const mdtp = (dispatch) => {
     return {
-        action: report => dispatch(updateNote(report)),
+        action: note => dispatch(updateNote(note)),
         fetchNotes: () => dispatch(fetchNotes()),
         closeModal: () => dispatch(closeModal()),
         deleteNote: (noteId) => dispatch(deleteNote(noteId))
