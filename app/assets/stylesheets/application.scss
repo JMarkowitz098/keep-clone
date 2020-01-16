@@ -18,7 +18,8 @@
  @import "reset.scss";
  //Core
  @import "variables.scss";
+ @import "mixins.scss";
  //Components
- @import "api/*";
+ @import "api/*"; 
 
 //    *= require_tree .

@@ -2,7 +2,9 @@
     display: flex;
     justify-content: left;
     flex-wrap: wrap;
-    align-items: flex-start
+    align-items: flex-start;
+
+    // flex-direction: column;
 }
 
 #note-index-form-container {
@@ -36,5 +38,10 @@
 #main {
     display: flex;
     justify-content: center;
+}
+
+body {
+    width: 100%;
+    margin: 0 auto;
 }
 

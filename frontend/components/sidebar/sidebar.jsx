@@ -11,9 +11,9 @@ class Sidebar extends React.Component {
                     <div><i className="fas fa-book-open"></i></div>
                     <a href="#">Portfolio</a>
                 </span> */}
-                <span>
+                <span onClick={() => window.open('https://www.linkedin.com/in/jmarkowitz098/')}>
                     <div><i className="fab fa-linkedin-in"></i></div>
-                    <a href="https://www.linkedin.com/in/jmarkowitz098/">LinkedIn</a>
+                    <a href="https://www.linkedin.com/in/jmarkowitz098/" target="_blank" >LinkedIn</a>
                 </span>
                 {/* <span>
                     <div><i className="far fa-envelope"></i></div>

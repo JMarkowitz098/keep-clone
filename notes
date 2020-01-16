@@ -32,3 +32,8 @@ Idea: Track note position in db
 Possibly use debounce so update after dragging is done
 Or maybe use an unmount
 On mouse release changes position?
+
+-Files for fonts and colors
+-Nesting
+-Use flexbox then add margin and padding
+
