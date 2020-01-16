@@ -1,4 +1,5 @@
 import React from 'react';
+import { changeInputColorOnError } from '../../util/session_errors_util'
 import { Link } from 'react-router-dom'
 
 class SessionForm extends React.Component {
@@ -11,6 +12,7 @@ class SessionForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.loginGuest = this.loginGuest.bind(this);
         this.bindEnter = this.bindEnter.bind(this);
+        this.handleErrors = this.handleErrors.bind(this)
     }
 
     componentWillUnmount () {
@@ -55,7 +57,8 @@ class SessionForm extends React.Component {
     }
 
     handleErrors() {
-        if (this.props.errors.length !== 0) this.changeInputColorOnError()
+        // if (this.props.errors.length !== 0) this.changeInputColorOnError()
+        if (this.props.errors.length !== 0) changeInputColorOnError(this)
 
         return (
             this.props.errors.map((error, idx) => (
@@ -80,7 +83,6 @@ class SessionForm extends React.Component {
         e.preventDefault();
         const user = Object.assign({}, this.state);
         this.props.processForm(user)
-            // .then(() => this.props.history.push('./index'))
     }
 
     render() {

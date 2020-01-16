@@ -21,14 +21,14 @@ ApplicationRecord.transaction do
 
     #Superman Notes
     Note.create!(title: "Rescue Louis", body: "She has been kidnapped by Lex Luxor! I must save her!",
-                author_id: User.first.id)
+                author_id: User.first.id, color: "red")
     Note.create!(title: "Walk Krypto", body: "Make sure he doesn't pee in the neighbors yard again!",
-                author_id: User.first.id, position: 2)
+                author_id: User.first.id, position: 2, color: "blue")
     Note.create!(title: "", body: "account: gogome! pw: greenrock",
-                author_id: User.first.id, position: 3)
+                author_id: User.first.id, position: 3, color: "purple")
     
     Note.create!(title: "Groceries", body: "Eggs, bananas, freedom",
-                author_id: User.first.id, position: 4)
+                author_id: User.first.id, position: 4, color: "green")
 
     #Blue Beetle Notes
     Note.create!(title: "Get scarab off of me!", body: "I can't believe Ted got me into this.",
