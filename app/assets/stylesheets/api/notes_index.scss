@@ -1,18 +1,16 @@
+// ::-webkit-scrollbar {
+//   width: 10px;
+// }
+
 #notes-list {
-    display: flex;
-    justify-content: left;
+    @include flex(left, none);
     flex-wrap: wrap;
     align-items: flex-start;
-
-    // flex-direction: column;
 }
 
 #note-index-form-container {
-    display: flex;
+    @include flex(center, center);
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    // padding-left: 125px;
     margin: 5% 10%;
     width: 100%;
     margin-top: 5%;
@@ -24,24 +22,17 @@
 }
 
 #list-container {
+    @include flex(center, none);
     margin-top: 3%;
-    display: flex;
-    justify-content: center;
     margin-left: 1%;
 }
-
 
 .create-note {
     margin: 30px;
 }
 
 #main {
-    display: flex;
-    justify-content: center;
+    @include flex(center, none);
 }
 
-body {
-    width: 100%;
-    margin: 0 auto;
-}
 
