@@ -82,16 +82,18 @@ class EditNoteForm extends React.Component {
                 
                     <input type="submit" value="Close" id={'ef-close-button'} onClick={this.handleSubmit} />
                 </form>
-                <button
-                    onClick={() => this.handleDeleteClick(this.props.noteId)}
-                    id="show-delete-button"
-                ><i className="far fa-trash-alt"></i>
-                </button>
-                <button onClick={() => this.handleColorChange('blue') }>Blue</button>
-                <button onClick={() => this.handleColorChange('yellow') }>Yellow</button>
-                <button onClick={() => this.handleColorChange('green') }>Green</button>
-                <button onClick={() => this.handleColorChange('red') }>Red</button>
-                <button onClick={() => this.handleColorChange('purple') }>Purple</button>
+                <div id="ef-buttons">
+                    <button
+                        onClick={() => this.handleDeleteClick(this.props.noteId)}
+                        id="show-delete-button"
+                    ><i className="far fa-trash-alt"></i>
+                    </button>
+                    <button id= "blue-button" className="color-button" onClick={() => this.handleColorChange('blue') }></button>
+                    <button className="color-button" onClick={() => this.handleColorChange('yellow') }>Yellow</button>
+                    <button className="color-button" onClick={() => this.handleColorChange('green') }>Green</button>
+                    <button className="color-button" onClick={() => this.handleColorChange('red') }>Red</button>
+                    <button className="color-button" onClick={() => this.handleColorChange('purple') }>Purple</button>
+                </div>
             </div>
         )
     }

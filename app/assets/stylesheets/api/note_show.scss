@@ -114,6 +114,8 @@
     box-shadow: inset 1px 1px 0 rgba(0,0,0,.1), inset 0 -1px 0 rgba(0,0,0,.07);
 }
 
+
+
 #ef-close-button {
     border: none;
     align-self: flex-end;
@@ -131,7 +133,6 @@
     padding: 8px 24px;
     border-radius: 4px;
     background-color: inherit;
-
 }
 
 #ef-close-button:hover {
@@ -147,13 +148,35 @@
     display: none;
 }
 
-#show-delete-button {
+#ef-buttons{
+    display: flex;
+
     position: relative;
     bottom: 50px;
     left: 10px;
+}
 
-    font-size: 1.4em;
+.color-button {
     cursor: pointer;
+    padding: 10px;
+}
+
+#blue-button {
+    background-color: $blue;
+    height: 26px;
+    width: 26px;
+    margin: 2px;
+
+    box-sizing: border-box;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 50%;
+}
+
+#show-delete-button {
+  
+    cursor: pointer;
+    font-size: 1.4em;
     font-size: 1.2em;
     color: #202124;
     height: inherit;
