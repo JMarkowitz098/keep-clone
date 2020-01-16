@@ -6,7 +6,6 @@
 .ef-form-container{
     display: flex;
     flex-direction: column;
-
     padding: 10px 10px 10px 20px;
     width: 600px;
     margin: 5px;
@@ -18,31 +17,26 @@
     box-shadow: 0px 0px 3px 1px rgb(226,227,227);
     background-color: $yellow;
     border-color: $yellow;
-
-    
 }
 
 #ef-title-input {
     width: 100%;
     border: none;
-    // font-size: 15px;
     letter-spacing: 0.00625em;
-    font-family: "Google Sans", Roboto, Arial, sans-serif;
+    font-family: $google-sans;
     font-size: 1.2rem;
     font-weight: 500;
     line-height: 1.5rem;
     background-color: inherit;
     padding: 10px 0px 0px 0px;
 
-
-}
-
-#ef-title-input:focus,
-#ef-body-input {
-    outline: none
+    &:focus {
+        outline: none;        
+    }
 }
 
 #ef-body-input {
+    outline: none;
     width: 110px;
     resize: none;
     min-height: 5em;
@@ -52,59 +46,40 @@
     padding: 15px 10px 10px 0px;
     background-color: inherit;
     text-overflow: ellipsis;
-
     letter-spacing: .01428571em;
-    font-family: Roboto,Arial,sans-serif;
+    font-family: $google-sans;
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.25rem;
 
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: rgba(215, 216, 216, 0.452);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: rgba(218,220,223,.2);
+        border-width: 1px 1px 1px 2px;
+
+        &:hover {
+            cursor: pointer;
+            background-color: $dark-grey;
+        }
+    }  
 }
-
-#ef-body-input::-webkit-scrollbar {
-  width: 12px;
-}
-
-/* width */
-#ef-body-input::-webkit-scrollbar {
-  width: 10px;
-}
-
-/* Track */
-#ef-body-input::-webkit-scrollbar-track {
-//   background: $yellow;
-  background: inherit;
-}
-
-/* Handle */
-#ef-body-input::-webkit-scrollbar-thumb {
-  background: rgba(0,0,0,.2);
-  border-width: 1px 1px 1px 2px;
-}
-
-/* Handle on hover */
-#ef-body-input::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(0,0,0,.2);
-    background-clip: padding-box;
-    border: solid transparent;
-    border-width: 1px 1px 1px 6px;
-    min-height: 28px;
-    padding: 100px 0 0;
-    box-shadow: inset 1px 1px 0 rgba(0,0,0,.1), inset 0 -1px 0 rgba(0,0,0,.07);
-}
-
-
 
 #ef-close-button {
     border: none;
     align-self: flex-end;
-    box-sizing: border-box;
     color: rgba(0,0,0,0.87);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     letter-spacing: .01785714em;
-    font-family: 'Google Sans',Roboto,Arial,sans-serif;
+    font-family: $google-sans;
     font-size: .875rem;
     font-weight: 500;
     line-height: 1.25rem;
@@ -113,24 +88,19 @@
     border-radius: 4px;
     background-color: inherit;
     z-index: 10;
-}
 
-#ef-close-button:hover {
-    cursor: pointer;
-    background-color: rgba(95,99,104,0.039);
-}
+    &:hover {
+        cursor: pointer;
+        background-color: rgba(95,99,104,0.039);
+    }
 
-#ef-close-button:focus {
-    outline: none
-}
-
-.hide {
-    display: none;
+    &:focus {
+        outline: none
+    }
 }
 
 #ef-buttons{
-    display: flex;
-    align-items: center;
+    @include flex(none, center);
     position: relative;
     bottom: 3.5em;
     left: 1em;
@@ -139,18 +109,15 @@
 .color-button {
     cursor: pointer;
     padding: 10px;
-
     height: 20px;
     width: 20px;
     margin: 10px;
-
-    box-sizing: border-box;
     border-radius: 50%;
     border: 1.5px solid transparent;
-}
 
-.color-button:hover {
-    border: 1.5px solid #000;
+    &:hover {
+        border: 1.5px solid #000;
+    }
 }
 
 #blue-button {
@@ -174,12 +141,11 @@
     font-size: 1.2em;
     height: 40px;
     width: 40px;
-}
 
-#show-delete-button:hover {
-    background-color: rgba(0, 0, 0, 0.123);
-    border-radius: 25px;
-    box-shadow: inset 0 0 0 1px transparent;
-    box-sizing: border-box;
-
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.123);
+        border-radius: 25px;
+        box-shadow: inset 0 0 0 1px transparent;
+        box-sizing: border-box;
+    }
 }
