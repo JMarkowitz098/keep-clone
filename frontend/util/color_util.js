@@ -6,6 +6,15 @@ export const changeNoteColor = (ctx, color) => {
         case 'yellow':
             changeToYellow(ctx)
             break;
+        case 'green':
+            changeToGreen(ctx)
+            break;
+        case 'red':
+            changeToRed(ctx)
+            break;
+        case 'purple':
+            changeToPurple(ctx)
+            break;
         default:
             break;
     }
@@ -28,6 +37,8 @@ const changeIndexItemColor = (noteId, color) => {
     }
 }
 
+//Colors
+
 const changeToBlue = (ctx) => {
     let blue = "#a7ffeb"
     ctx.setState({
@@ -42,8 +53,33 @@ const changeToYellow = (ctx) => {
     ctx.setState({
         color: 'yellow'
     })
-
     changeFormColor(yellow)
     changeIndexItemColor(ctx.props.note.id, yellow)
+}
 
+const changeToGreen = (ctx) => {
+    let green = "#ccff90"
+    ctx.setState({
+        color: 'green'
+    })
+    changeFormColor(green)
+    changeIndexItemColor(ctx.props.note.id, green)
+}
+
+const changeToRed = (ctx) => {
+    let red = "#f28b82"
+    ctx.setState({
+        color: 'red'
+    })
+    changeFormColor(red)
+    changeIndexItemColor(ctx.props.note.id, red)
+}
+
+const changeToPurple = (ctx) => {
+    let purple = "#d7aefb"
+    ctx.setState({
+        color: 'purple'
+    })
+    changeFormColor(purple)
+    changeIndexItemColor(ctx.props.note.id, purple)
 }

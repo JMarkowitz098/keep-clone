@@ -89,6 +89,9 @@ class EditNoteForm extends React.Component {
                 </button>
                 <button onClick={() => this.handleColorChange('blue') }>Blue</button>
                 <button onClick={() => this.handleColorChange('yellow') }>Yellow</button>
+                <button onClick={() => this.handleColorChange('green') }>Green</button>
+                <button onClick={() => this.handleColorChange('red') }>Red</button>
+                <button onClick={() => this.handleColorChange('purple') }>Purple</button>
             </div>
         )
     }
