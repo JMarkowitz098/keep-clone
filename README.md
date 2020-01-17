@@ -1,10 +1,11 @@
-# Keep Clone - [Live Demo](https://jared-keep-clone.herokuapp.com/#/login){target="_blank"}
+# Keep Clone - [Live Demo](https://jared-keep-clone.herokuapp.com/#/login)
+
 
 
 Keep clone is an app that lets you create digital sticky notes! You can create, edit, and delete any 
 number of memos you want to keep. You can even change their color!
 
-**Keep Clone was built using:**
+## Technologies
 1. Ruby on Rails
 2. React
 3. Redux
@@ -17,7 +18,7 @@ number of memos you want to keep. You can even change their color!
 
 
 
-
+## Features
 **Create notes** 
 + Seamlessly create notes right on your note page
 + Intuitively save your notes by clicking the close button or simply clicking outside of the form
@@ -32,7 +33,31 @@ number of memos you want to keep. You can even change their color!
 
 ![Edit Note Gif](app/assets/images/EditNoteGif.gif "Edit Note Gif")
 
+## Challenges
+
 An especially challenging feature of the note edit function was getting it to open as a modal. In order for the modals state to persist, the onChange event listener had to be bounded to the modal and then threaded through the props until it could be invoked on the edit form. 
 
+```javascript
+<NoteShowContainer 
+    note={modal.note}
+    updateModalState={this.updateModalState} 
+    setInitialModalState={this.setInitialModalState}
+/>
+```
 
 Equally challenging was getting a note to act the same way both for closing the modal and for clicking the save button. Each feature had to have a different handleSubmit function because they were actually located at different parts in the program. 
+
+```javascript
+handleSubmit(e) {
+    e.preventDefault();
+    if (this.submittable()){
+        this.props.updateNote(this.state)
+            .then(() => this.setState({ title: '', body: '' }))
+            .then(this.closeModalAndPushToIndex) 
+    }
+}
+```
+
+## Future features
++ Arrange notes with drag and drop
++ Add checkboxes to your notes to make todo lists
