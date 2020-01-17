@@ -17,6 +17,9 @@ number of memos you want to keep. You can even change their color!
 
 ![Create Note Gif](app/assets/images/ezgif.com-video-to-gif.gif "Create Note Gif")
 
+
+![Edit Note Gif](app/assets/images/EditNoteGif.gif "Edit Note Gif")
+
 **Create notes** 
 + Seamlessly create notes right on your note page
 + Intuitively save your notes by clicking the close button or simply clicking outside of the form
