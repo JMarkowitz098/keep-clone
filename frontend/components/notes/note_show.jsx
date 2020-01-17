@@ -23,7 +23,8 @@ class NoteShow extends React.Component {
             <div id="edit-note-container">
                 <EditNoteContainer 
                     updateModalState={this.props.updateModalState} 
-                    noteId={note.id}/>
+                    noteId={note.id}
+                />
             </div>
         )
     }

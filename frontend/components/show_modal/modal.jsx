@@ -29,7 +29,7 @@ class Modal extends React.Component {
         e.preventDefault();
         if (this.submittable()){
             this.props.updateNote(this.state)
-                .then(() => this.setState({ title: '', body: '' }))
+                // .then(() => this.setState({ title: '', body: '' }))
                 .then(this.closeModalAndPushToIndex) 
         }
     }
