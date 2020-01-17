@@ -53,7 +53,6 @@ class SessionForm extends React.Component {
             email: "superman@gmail.com",
             password: "greenrock"
         })
-        console.log(this.state)
     }
 
     handleErrors() {
