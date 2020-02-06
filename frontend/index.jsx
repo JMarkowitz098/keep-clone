@@ -2,7 +2,6 @@ import React from 'react'
 import ReactDOM from "react-dom";
 import configureStore from "./store/store";
 import Root from "./components/root";
-import { createNote } from "./util/note_api_util"
 
 //For Testing
 
@@ -25,10 +24,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     ReactDOM.render(<Root store={store} />, root);
-
-    //For Testing
-    window.dispatch = store.dispatch;
-    window.getState = store.getState;
-    window.createNote = createNote
 
 });

@@ -24,9 +24,13 @@ class EditNoteForm extends React.Component {
         }
     }
 
-    handleColorChange(color) {
+    handleColorChange(color, e) {
         changeNoteColor(this, color)
         this.props.updateModalState('color', color)
+
+        let buttons = Array.from(document.getElementsByClassName('color-button'))
+        buttons.forEach((button) => button.style.border = "1.5px solid transparent")
+        e.currentTarget.style.border = "1.5px solid"
     }
 
     growTextArea() {
@@ -40,7 +44,6 @@ class EditNoteForm extends React.Component {
         e.preventDefault();
         const note = Object.assign({}, this.state);
         this.props.action(note)
-            // .then(() => this.setState({ title: '', body: '' })) //Set does not need to be reset because component is closed on submit
             .then(() => this.props.fetchNotes())
         this.closeModalAndPushToIndex()
     }
@@ -88,11 +91,11 @@ class EditNoteForm extends React.Component {
                         id="show-delete-button"
                     ><i className="far fa-trash-alt"></i>
                     </button>
-                    <button id="blue-button" className="color-button" onClick={() => this.handleColorChange('blue') }></button>
-                    <button id="yellow-button" className="color-button" onClick={() => this.handleColorChange('yellow') }></button>
-                    <button id="green-button" className="color-button" onClick={() => this.handleColorChange('green') }></button>
-                    <button id="red-button" className="color-button" onClick={() => this.handleColorChange('red') }></button>
-                    <button id="purple-button" className="color-button" onClick={() => this.handleColorChange('purple') }></button>
+                    <button id="blue-button" className="color-button" onClick={(e) => this.handleColorChange('blue', e) }></button>
+                    <button id="yellow-button" className="color-button" onClick={(e) => this.handleColorChange('yellow', e) }></button>
+                    <button id="green-button" className="color-button" onClick={(e) => this.handleColorChange('green', e) }></button>
+                    <button id="red-button" className="color-button" onClick={(e) => this.handleColorChange('red', e) }></button>
+                    <button id="purple-button" className="color-button" onClick={(e) => this.handleColorChange('purple', e) }></button>
                 </div>
             </div>
         )
