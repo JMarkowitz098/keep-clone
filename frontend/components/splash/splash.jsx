@@ -4,6 +4,16 @@ import React from 'react';
 class Splash extends React.Component {
     constructor(props) {
         super(props)
+        this.handleClick = this.handleClick.bind(this)
+    }
+
+    handleClick() {
+        let user = {
+            email: "superman@gmail.com",
+            password: "greenrock"
+        }
+        this.props.login(user)
+            .then(() => this.props.history.push('/notes'))
     }
 
     render() {
@@ -20,7 +30,7 @@ class Splash extends React.Component {
                     <button 
                         onClick={() => this.props.history.push('/login')}>
                     Log In</button>
-                    <button>Use Demo Account</button>
+                    <button onClick={this.handleClick}>Use Demo Account</button>
                 </div>
             </div>
         )
