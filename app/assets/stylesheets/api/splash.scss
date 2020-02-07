@@ -1,7 +1,7 @@
 #splash-container {
     width: 100%;
     position: relative;
-    margin-top: 5%;
+    // margin-top: 5%;
 
     video {
         width: 120%;
@@ -14,7 +14,10 @@
     @include flex(none, center);
     flex-direction: column;
     // background-color: $dark-grey;
-    border-radius: 5px;
+    // border-radius: 5px;
+    border-right: solid $dark-grey 1px;
+    border-bottom: solid $dark-grey 1px;
+    margin-top: 10px;
 
     z-index: 1;
     top: 0;
@@ -25,17 +28,30 @@
     font: $product-sans;
 
     h3 {
-        font-size: 50px;
+        font-size: 30px;
+        margin-bottom: 10px;
     }
 
     button {
         margin: 5px;
         width: 80%;
-        font-size: 30px;
-        border-radius: 5px;
-        border: solid 2px black;
         color: $white;
-        background-color: $login-blue;
+        background-color: #698df6;
+        border-radius: 3px;
+        box-shadow: 2px 2px 1px rgba(0,0,0,0.19), inset 0 -2px 0 #5878e5;
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 20px;
+        padding: 10px 21px;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &:active {
+            background-color: black;
+        }
+
     }
 
 }
