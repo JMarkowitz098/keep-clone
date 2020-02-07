@@ -1,0 +1,42 @@
+#splash-container {
+    width: 100%;
+    position: relative;
+    margin-top: 5%;
+
+    video {
+        width: 120%;
+        position: relative;
+        z-index: 0;
+    }
+}
+
+#splash-overlay {
+    @include flex(none, center);
+    flex-direction: column;
+    // background-color: $dark-grey;
+    border-radius: 5px;
+
+    z-index: 1;
+    top: 0;
+    left: 1%;
+    position:absolute;
+    padding: 20px;
+    color: $black;
+    font: $product-sans;
+
+    h3 {
+        font-size: 50px;
+    }
+
+    button {
+        margin: 5px;
+        width: 80%;
+        font-size: 30px;
+        border-radius: 5px;
+        border: solid 2px black;
+        color: $white;
+        background-color: $login-blue;
+    }
+
+}
+
