@@ -50,7 +50,7 @@ class Greeting extends React.Component {
             <div className="header-fixed">
                 <span >
                     <div id="header-menu-icon" onClick={() => this.toggleNav()}><i className="fas fa-bars"></i></div>
-                    <img src={window.lburl} alt="lightbulb logo"/>
+                    <img src={window.lburl} alt="lightbulb logo" />
                     <h2>Keep</h2>
                 </span>
                 {this.loggedIn()}

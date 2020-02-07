@@ -19,19 +19,27 @@ class Splash extends React.Component {
     render() {
         return (
             <div id="splash-container">
+                <div id="splash-overlay">
+                    <span>
+                        <img src={window.lburl} alt="lightbulb logo" />
+                        <h3>Google Keep Tribute</h3>
+                    </span>
+                    <span id="splash-buttons">
+                        <button
+                            onClick={() => this.props.history.push('/signup')}
+                        >Sign Up</button>
+                        <button
+                            onClick={() => this.props.history.push('/login')}>
+                            Log In</button>
+                        <button onClick={this.handleClick}>Use Demo Account</button>
+                    </span>
+                </div>
+
+
                 <video autoPlay loop muted>
                     <source src={window.video}/>
                 </video>
-                <div id="splash-overlay">
-                    <h3>Google Keep Tribute</h3>
-                    <button
-                        onClick={() => this.props.history.push('/signup')}
-                    >Sign Up</button>
-                    <button 
-                        onClick={() => this.props.history.push('/login')}>
-                    Log In</button>
-                    <button onClick={this.handleClick}>Use Demo Account</button>
-                </div>
+               
             </div>
         )
     }

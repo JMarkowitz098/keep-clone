@@ -1,57 +1,61 @@
 #splash-container {
+    @include flex(none, center);
+    flex-direction: column;
     width: 100%;
-    position: relative;
-    // margin-top: 5%;
 
     video {
-        width: 120%;
-        position: relative;
-        z-index: 0;
+        width: 100%;
     }
 }
 
 #splash-overlay {
-    @include flex(none, center);
-    flex-direction: column;
-    // background-color: $dark-grey;
-    // border-radius: 5px;
-    border-right: solid $dark-grey 1px;
+    @include flex(space-between, none);
+    width: 100%; 
+    height: 4em;
     border-bottom: solid $dark-grey 1px;
     margin-top: 10px;
 
-    z-index: 1;
-    top: 0;
-    left: 1%;
-    position:absolute;
-    padding: 20px;
-    color: $black;
+    padding: 5px; 
     font: $product-sans;
 
-    h3 {
-        font-size: 30px;
-        margin-bottom: 10px;
+    span {
+        @include flex(center, center);
+
+
+        h3 {
+            color: #5f6368;
+            
+            opacity: 1;
+            font-family: 'Product Sans',Arial,sans-serif;
+            font-size: 22px;
+            line-height: 24px;
+            font-weight: 100;
+        }
     }
 
     button {
-        margin: 5px;
-        width: 80%;
-        color: $white;
-        background-color: #698df6;
-        border-radius: 3px;
-        box-shadow: 2px 2px 1px rgba(0,0,0,0.19), inset 0 -2px 0 #5878e5;
-        font-size: 16px;
-        font-weight: 300;
-        line-height: 20px;
-        padding: 10px 21px;
-
+        background-color: $white;
+        border: 1px solid $dark-grey;
+        border-radius: 4px;
+        display: inline-block;
+        font: 500 14px/16px $roboto;
+        letter-spacing: .15px;
+        margin: 16px;
+        outline: 0;
+        padding: 10px 24px;
+        text-align: center;
+        text-decoration: none;
+        white-space: normal;
+        cursor: pointer;
+        
         &:hover {
-            cursor: pointer;
+            background-color: $light-grey;
         }
-
-        &:active {
-            background-color: black;
+        
+        &:active{
+            background-color: #dadce0;
         }
-
+        
     }
 
 }
