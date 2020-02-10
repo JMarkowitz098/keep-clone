@@ -6,9 +6,9 @@
 .ef-form-container{
     display: flex;
     flex-direction: column;
-    padding: 10px 10px 10px 20px;
-    width: 600px;
-    margin: 5px;
+    padding: 1rem 1rem 1rem 2rem;
+    width: 40rem;
+    margin: .5rem;
     list-style: none;
     box-sizing: border-box; 
     border: 1px solid   ;
@@ -28,7 +28,7 @@
     font-weight: 500;
     line-height: 1.5rem;
     background-color: inherit;
-    padding: 10px 0px 0px 0px;
+    padding: .5rem 0px 0px 0px;
 
     &:focus {
         outline: none;        
@@ -37,13 +37,12 @@
 
 #ef-body-input {
     outline: none;
-    width: 110px;
     resize: none;
     min-height: 5em;
 	max-height: 50vh;
     width: 100%;
     border: none;
-    padding: 15px 10px 10px 0px;
+    padding: 1rem 1rem 1rem 0;
     background-color: inherit;
     text-overflow: ellipsis;
     letter-spacing: .01428571em;
@@ -108,10 +107,10 @@
 
 .color-button {
     cursor: pointer;
-    padding: 10px;
-    height: 20px;
-    width: 20px;
-    margin: 10px;
+    padding: .7rem;
+    height: 1.5rem;
+    width: 1.5rem;
+    margin: .6rem;
     border-radius: 50%;
     border: 1.5px solid transparent;
 
