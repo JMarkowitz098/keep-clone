@@ -37,6 +37,18 @@ const changeIndexItemColor = (noteId, color) => {
     }
 }
 
+const changeButtonBorders = (color) => {
+
+    let buttons = Array.from(document.getElementsByClassName('color-button'))
+    buttons.forEach((button) => {
+        if (button.id === `${color}-button`) {
+            button.style.border = "1.5px solid black"
+        } else {
+            button.style.border = "1.5px solid transparent"
+        }
+    })
+}
+
 //Colors
 
 const changeToBlue = (ctx) => {
@@ -46,6 +58,7 @@ const changeToBlue = (ctx) => {
     })
     changeFormColor(blue)
     changeIndexItemColor(ctx.props.note.id, blue)
+    changeButtonBorders('blue');
 }
 
 const changeToYellow = (ctx) => {
@@ -55,6 +68,7 @@ const changeToYellow = (ctx) => {
     })
     changeFormColor(yellow)
     changeIndexItemColor(ctx.props.note.id, yellow)
+    changeButtonBorders('yellow');
 }
 
 const changeToGreen = (ctx) => {
@@ -64,6 +78,7 @@ const changeToGreen = (ctx) => {
     })
     changeFormColor(green)
     changeIndexItemColor(ctx.props.note.id, green)
+    changeButtonBorders('green');
 }
 
 const changeToRed = (ctx) => {
@@ -73,6 +88,7 @@ const changeToRed = (ctx) => {
     })
     changeFormColor(red)
     changeIndexItemColor(ctx.props.note.id, red)
+    changeButtonBorders('red');
 }
 
 const changeToPurple = (ctx) => {
@@ -82,4 +98,5 @@ const changeToPurple = (ctx) => {
     })
     changeFormColor(purple)
     changeIndexItemColor(ctx.props.note.id, purple)
+    changeButtonBorders('purple');
 }

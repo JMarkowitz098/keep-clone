@@ -27,10 +27,6 @@ class EditNoteForm extends React.Component {
     handleColorChange(color, e) {
         changeNoteColor(this, color)
         this.props.updateModalState('color', color)
-
-        let buttons = Array.from(document.getElementsByClassName('color-button'))
-        buttons.forEach((button) => button.style.border = "1.5px solid transparent")
-        e.currentTarget.style.border = "1.5px solid"
     }
 
     growTextArea() {
