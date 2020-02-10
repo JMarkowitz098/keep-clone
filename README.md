@@ -1,5 +1,5 @@
 # Keep Clone - [Live Demo](https://jared-keep-clone.herokuapp.com/#/login)
-![Demo SS](app/assets/images/DEMO_SS.png "Demo SS")
+![Demo_SS](app/assets/images/DEMO_SS.png "Demo_SS")
 
 Keep clone is an app that lets you create digital sticky notes! You can create, edit, and delete any 
 number of memos you want to keep. You can even change their color!
