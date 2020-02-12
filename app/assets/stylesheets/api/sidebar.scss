@@ -32,21 +32,24 @@
     margin: 5px;
     cursor: pointer;
 
-    &:hover {
-      color: #dadce0;
-      box-shadow: inset 0 0 0 1px transparent;
-      box-sizing: border-box;
-    }
+    // &:hover {
+    //   color: #dadce0;
+    //   box-shadow: inset 0 0 0 1px transparent;
+    //   box-sizing: border-box;
+    // }
   }
 
   div {
     height: 50px;
     width: 50px;
+    font-size: 1.5rem;
+    &:hover {
+      color: #f1f1f1;
+    }
   }
 
   a {
     text-decoration: none;
-    font-size: 25px;
     color: #818181;
     display: block;
     transition: 0.3s;
@@ -59,7 +62,7 @@
     color: #202124;
     letter-spacing: .01785714em;
     font-family: 'Google Sans',Roboto,Arial,sans-serif;
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: 500;
     padding-left: 20px;
 
@@ -76,4 +79,8 @@
   right: 25px;
   font-size: 36px;
   margin-left: 50px;
+}
+
+.photo {
+  width: 100%;
 }
