@@ -1,4 +1,4 @@
-# Keep Clone - [Live Demo](https://jared-keep-clone.herokuapp.com/#/login)
+# Keep Clone - ~~Live Demo~~
 ![Demo_SS](app/assets/images/Demo_SS.png "Demo_SS")
 
 Keep clone is an app that lets you create digital sticky notes! You can create, edit, and delete any 
